@@ -28,10 +28,3 @@ if submit:
 
 st.header("EgiPhoto", divider="rainbow")
 st.subheader("Welcome to my webpage")
-
-st.markdown('''
-    
-            
-    - Item one
-    - Item two
-    - Item three
