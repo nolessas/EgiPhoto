@@ -1,30 +1,57 @@
 import streamlit as st
-from PIL import Image
 
-import streamlit as st
+from streamlit_option_menu import option_menu
 
+
+import home, trending, test, your, about
 st.set_page_config(
-    page_title="Multipage App",
-    page_icon="👋",
+        page_title="Pondering",
 )
 
-st.title("Main Page")
-st.sidebar.success("Select a page above.")
-
-if "my_input" not in st.session_state:
-    st.session_state["my_input"] = ""
-
-my_input = st.text_input("Input a text here", st.session_state["my_input"])
-submit = st.button("Submit")
-if submit:
-    st.session_state["my_input"] = my_input
-    st.write("You have entered: ", my_input)
 
 
+class MultiApp:
 
+    def __init__(self):
+        self.apps = []
 
+    def add_app(self, title, func):
 
+        self.apps.append({
+            "title": title,
+            "function": func
+        })
 
+    def run():
+        # app = st.sidebar(
+        with st.sidebar:        
+            app = option_menu(
+                menu_title='Pondering ',
+                options=['Home','Account','Trending','Your Posts','about'],
+                icons=['house-fill','person-circle','trophy-fill','chat-fill','info-circle-fill'],
+                menu_icon='chat-text-fill',
+                default_index=1,
+                styles={
+                    "container": {"padding": "5!important","background-color":'black'},
+        "icon": {"color": "white", "font-size": "23px"}, 
+        "nav-link": {"color":"white","font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "blue"},
+        "nav-link-selected": {"background-color": "#02ab21"},}
+                
+                )
 
-st.header("EgiPhoto", divider="rainbow")
-st.subheader("Welcome to my webpage")
+        
+        if app == "Home":
+            home.app()
+        if app == "Account":
+            test.app()    
+        if app == "Trending":
+            trending.app()        
+        if app == 'Your Posts':
+            your.app()
+        if app == 'about':
+            about.app()    
+             
+          
+             
+    run()            
+         
