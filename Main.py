@@ -1,23 +1,43 @@
 import streamlit as st
 from PIL import Image
 
-st.header("This is a header", divider="rainbow")
-st.subheader("This is a subheader")
+import streamlit as st
+
+st.set_page_config(
+    page_title="Multipage App",
+    page_icon="👋",
+)
+
+st.title("Main Page")
+st.sidebar.success("Select a page above.")
+
+if "my_input" not in st.session_state:
+    st.session_state["my_input"] = ""
+
+my_input = st.text_input("Input a text here", st.session_state["my_input"])
+submit = st.button("Submit")
+if submit:
+    st.session_state["my_input"] = my_input
+    st.write("You have entered: ", my_input)
+
+
+
+
+
+
+
+st.header("EgiPhoto", divider="rainbow")
+st.subheader("Welcome to my webpage")
 
 st.markdown('''
-    This is some paragraph text This is some paragraph text This is some paragraph text
-    This is some paragraph text
+    
             
     - Item one
     - Item two
     - Item three
             
-    This text is **bold**
+
     
-    [Subscribe](https://www.youtube.com/@turbinethree)
-''')
 
-st.image("https://images.unsplash.com/photo-1535930749574-1399327ce78f?q=80&w=1936&auto=format&fit=crop")
 
-example_img = Image.open("example_img.jpg")
 st.image(example_img)
