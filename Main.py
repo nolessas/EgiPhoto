@@ -39,5 +39,5 @@ st.markdown('''
 
     
 
-
+example_img = Image.open("example_img.jpg")
 st.image(example_img)
