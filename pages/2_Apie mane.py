@@ -1,5 +1,4 @@
-import random
-import pandas as pd
+import streamlit as st
 
 st.title("EgiPhoto")
 st.write("Aš esu fotografas/videografas")
