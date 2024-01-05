@@ -1,0 +1,7 @@
+User: Client
+Message: mano mano
+Phone Number: 7879878978989
+Filmuoti1 1: True
+Fotografuoti 2: True
+Event Date: 2024-01-16
+
