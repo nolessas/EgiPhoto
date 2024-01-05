@@ -4,7 +4,7 @@ import os
 # Function to check admin credentials
 def authenticate(username, password):
     # Replace with your authentication logic
-    return username == "admin" and password == "admin852"
+    return username == "admin" and password == "admin"
 
 # Function to read messages
 def read_messages(user):
