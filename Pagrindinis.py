@@ -2,6 +2,21 @@ import streamlit as st
 import os
 from natsort import natsorted
 
+# Inline CSS
+inline_css = """
+<style>
+  body {
+    background-color: #F0F0F0;
+    color: #333333;
+    font-family: 'Arial', sans-serif;
+  }
+  /* Add more styles as needed */
+</style>
+"""
+
+# Display inline CSS
+st.markdown(inline_css, unsafe_allow_html=True)
+
 st.image("logo2.png")
 
 # Use local CSS
