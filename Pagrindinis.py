@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import os
 from streamlit_lottie import st_lottie
-import json
+import base64
 from natsort import natsorted
 
 st.image("logo2.png")
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     main()
 
 
-from natsort import natsorted
+
 
 # Path to the folder containing images
 image_folder = "folder1"
@@ -33,5 +33,11 @@ for image_file in image_files:
     # Display the image
     st.image(image_path, use_column_width=True)
 
+# Read and display a specific image
+with open("figures/cigar.jpeg", 'rb') as f:
+    image = f.read()
 
+image_bytes = base64.b64encode(image).decode()
+local_file = f'<p style="text-align:center;"><img src="data:image/jpeg;base64,{image_bytes}" alt="Image" width=300></p>'
 
+st.markdown(local_file, unsafe_allow_html=True)
