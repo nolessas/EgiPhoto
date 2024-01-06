@@ -1,39 +1,40 @@
 import streamlit as st
 import streamlit as st
 import os
-
-
-def save_to_dataframe(text, df):
-    df = df.append({'Text': text}, ignore_index=True)
-    return df
+import pandas as pd
 
 def main():
-    st.title("Text Input App")
+    st.title("User Input Text Saver")
 
-    # Text Input
-    user_input = st.text_area("Write something:")
+    # Get user input
+    user_input = st.text_input("Enter your text:")
 
-    # Save Button
-    if st.button("Save"):
+    if st.button("Save Text"):
         # Load existing data or create a new DataFrame
-        if 'user_input_data.csv' in st.session_state:
-            df = st.session_state.user_input_data
-        else:
-            df = pd.DataFrame(columns=['Text'])
+        try:
+            df = pd.read_csv("user_input.csv")
+        except FileNotFoundError:
+            df = pd.DataFrame(columns=["Text"])
 
-        # Save to DataFrame
-        df = save_to_dataframe(user_input, df)
-        st.session_state.user_input_data = df
+        # Append the new user input to the DataFrame
+        df = df.append({"Text": user_input}, ignore_index=True)
+
+        # Save the DataFrame to a CSV file
+        df.to_csv("user_input.csv", index=False)
 
         st.success("Text saved successfully!")
 
-    # Display the saved content
-    st.subheader("Saved Content:")
-    if 'user_input_data' in st.session_state:
-        st.dataframe(st.session_state.user_input_data)
+    # Display the existing data
+    st.title("Existing User Input")
+    try:
+        existing_data = pd.read_csv("user_input.csv")
+        st.dataframe(existing_data)
+    except FileNotFoundError:
+        st.info("No existing data.")
 
 if __name__ == "__main__":
     main()
+
 
 
 
