@@ -39,23 +39,6 @@ for i, image_file in enumerate(image_files):
         col2.image(image_path, use_column_width=True, caption=f"Image {i+1}")
 
 
-watermark_bytes = base64.b64encode(watermark_image).decode()
-watermark_html = f'<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"><img src="data:image/jpeg;base64,{watermark_bytes}" alt="Watermark" style="width: 100%; height: 100%; object-fit: cover;"></div>'
-
-# Display the watermark
-st.markdown(watermark_html, unsafe_allow_html=True)
-
-# Display each image in two columns
-col1, col2 = st.columns(2)
-for i, image_file in enumerate(image_files):
-    # Construct the full path to the image file
-    image_path = os.path.join(image_folder, image_file)
-
-    # Display the image in alternating columns
-    if i % 2 == 0:
-        col1.image(image_path, use_column_width=True, caption=image_file)
-    else:
-        col2.image(image_path, use_column_width=True, caption=image_file)
 
 
 image_bytes = base64.b64encode(image).decode()
