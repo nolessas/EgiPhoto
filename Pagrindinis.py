@@ -4,11 +4,10 @@ import webbrowser
 
 
 
-
-
-def main():
-   def open_url(url):
+def open_url(url):
     webbrowser.open_new_tab(url) 
+def main():
+ 
 
     if st.sidebar.button("🎨 Instagram"):
         st.sidebar.markdown("[Visit instagram](https://www.instagram.com/egidijauss/)") and open_new_tab("https://www.instagram.com/egidijauss/")
