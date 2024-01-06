@@ -93,11 +93,11 @@ col1, col2, col3 = st.columns(3)
 # Content
 
 with col1:
-   st.markdown("[🎨Visit instagram](https://www.instagram.com/egidijauss/)")
+   st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
 with col2:
-   st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+   st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 with col3:
-   st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)")
+   st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
 
 # Create buttons in each column
 if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
