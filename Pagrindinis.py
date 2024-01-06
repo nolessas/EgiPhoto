@@ -6,24 +6,21 @@ import webbrowser
 
 
 
-def open_url(url):
-    webbrowser.open_new_tab(url)
-
 def main():
-    st.title("Social Media Links")
+   def open_url(url):
+    webbrowser.open_new_tab(url) 
 
     if st.sidebar.button("🎨 Instagram"):
-        open_url("https://www.instagram.com/egidijauss/")
+        st.sidebar.markdown("[Visit instagram](https://www.instagram.com/egidijauss/)") and open_new_tab("https://www.instagram.com/egidijauss/")
 
     if st.sidebar.button("💖 Youtube"):
-        open_url("https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ")
+        st.sidebar.markdown("[Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 
     if st.sidebar.button("🧢 Facebook"):
-        open_url("https://www.facebook.com/EgiFoto")
+        st.sidebar.markdown("[Visit Facebook](https://www.facebook.com/EgiFoto)")
 
 if __name__ == "__main__":
     main()
-
 
    
    
