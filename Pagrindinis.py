@@ -5,6 +5,7 @@ from streamlit_lottie import st_lottie
 import base64
 from natsort import natsorted
 
+# Add custom CSS for mobile responsiveness
 st.markdown(
     """
     <style>
@@ -17,6 +18,12 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+# Rest of your Streamlit app
+st.title("My Streamlit App")
+
+# Your other Streamlit components...
+
 
 
 st.image("logo2.png")
