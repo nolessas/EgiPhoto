@@ -2,9 +2,10 @@ import streamlit as st
 import streamlit as st
 import os
 
-def save_to_file(text, filename='user_input.txt'):
-    with open(filename, 'a') as file:
-        file.write(f"{text}\n")
+
+def save_to_dataframe(text, df):
+    df = df.append({'Text': text}, ignore_index=True)
+    return df
 
 def main():
     st.title("Text Input App")
@@ -14,18 +15,26 @@ def main():
 
     # Save Button
     if st.button("Save"):
-        save_to_file(user_input)
+        # Load existing data or create a new DataFrame
+        if 'user_input_data.csv' in st.session_state:
+            df = st.session_state.user_input_data
+        else:
+            df = pd.DataFrame(columns=['Text'])
+
+        # Save to DataFrame
+        df = save_to_dataframe(user_input, df)
+        st.session_state.user_input_data = df
+
         st.success("Text saved successfully!")
 
     # Display the saved content
     st.subheader("Saved Content:")
-    if os.path.exists('user_input.txt'):
-        with open('user_input.txt', 'r') as file:
-            saved_content = file.read()
-            st.text(saved_content)
+    if 'user_input_data' in st.session_state:
+        st.dataframe(st.session_state.user_input_data)
 
 if __name__ == "__main__":
     main()
+
 
 
 
