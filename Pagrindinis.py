@@ -9,15 +9,15 @@ import streamlit as st
 def main():
     st.title("")
 
-    if st.sidebar.button(""):
+    if st.sidebar.button("1"):
       
         st.markdown("[](https://www.instagram.com/egidijauss/)")
 
-    if st.sidebar.button(""):
+    if st.sidebar.button("2"):
         
         st.markdown("[](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 
-    if st.sidebar.button(""):
+    if st.sidebar.button("3"):
     
         st.markdown("[](https://www.facebook.com/EgiFoto)")
 
