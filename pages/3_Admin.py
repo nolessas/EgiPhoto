@@ -20,7 +20,7 @@ def read_messages(user):
 def send_message(user, message):
     filename = f"{user}_chat.txt"
     os.makedirs(os.path.dirname(filename), exist_ok=True)  # Create directory if it doesn't exist
-    with open(filename, "a") as file:
+    with open(filename, "a+") as file:
         file.write(f"{message}\n")
 
 # Streamlit App
