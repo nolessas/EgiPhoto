@@ -10,46 +10,26 @@ external_css = """
 /* Your custom CSS styles go here */
 body {
     background-color: #f0f0f0;
-}
-
-#MainMenu {
-    visibility: hidden;
-}
-
-footer {
-    visibility: hidden;
-}
-
-header {
-    visibility: hidden;
-}
-</style>
-"""
-
-custom_css = """
-<style>
-/* Your custom CSS styles go here */
-body {
     max-width: 100%;
 }
+
+#MainMenu, footer, header {
+    display: none;
+}
 </style>
 """
-st.markdown(custom_css, unsafe_allow_html=True)
+st.markdown(external_css, unsafe_allow_html=True)
 
 viewport_meta_tag = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 """
 st.markdown(viewport_meta_tag, unsafe_allow_html=True)
 
-
-
-
-
-
 # Use local CSS
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 local_css("style/style.css")
 
 def display_nuotraukos():
@@ -108,7 +88,6 @@ def display_contact_form():
 col1, col2, col3 = st.columns(3)
 
 # Content
-
 with col1:
    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
 with col2:
