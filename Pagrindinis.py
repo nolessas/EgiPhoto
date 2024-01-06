@@ -3,6 +3,7 @@ import numpy as np
 import os
 from streamlit_lottie import st_lottie
 import json
+from natsort import natsorted
 
 st.image("logo2.png")
 
@@ -41,22 +42,23 @@ if __name__ == "__main__":
 
 
 
+import streamlit as st
+import os
+from natsort import natsorted
+
 # Path to the folder containing images
 image_folder = "folder1"
 
-# List all files in the folder
-image_files = os.listdir(image_folder)
+# List all files in the folder and sort them naturally
+image_files = natsorted(os.listdir(image_folder))
 
 # Display each image in the folder
 for image_file in image_files:
     # Construct the full path to the image file
     image_path = os.path.join(image_folder, image_file)
 
-    try:
-        # Display the image
-        st.image(image_path, use_column_width=True)
-    except Exception as e:
-        # Log the error and continue to the next image
-        st.write(f"Error displaying image '{image_path}': {e}")
+    # Display the image
+    st.image(image_path, use_column_width=True)
+
 
 
