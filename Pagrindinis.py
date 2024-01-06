@@ -10,11 +10,11 @@ def main():
     st.title("")
 
    
-      if st.sidebar.button("🎨 Instagram"):
+    if st.sidebar.button("🎨 Instagram"):
         st.markdown("[](https://www.instagram.com/egidijauss/)")
 
     
-        if st.sidebar.button("💖 Youtube"):
+    if st.sidebar.button("💖 Youtube"):
         st.markdown("[](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 
   
