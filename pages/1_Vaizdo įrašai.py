@@ -3,8 +3,6 @@ import numpy as np
 import webbrowser
 import os
 
-def main():
-    st.title("Smagaus žiūrėjimo!")
 
 def main():
  if st.sidebar.button("Susisiekti"):
@@ -14,6 +12,11 @@ def main():
    st.sidebar.markdown("")
 if __name__ == "__main__":
     main()
+
+
+    st.title("Smagaus žiūrėjimo!")
+
+
 
 
     # Display the video player
