@@ -42,28 +42,18 @@ st.image("24.jpg")
 st.image('1.jpg', caption='Sunrise by the mountains')
 
 
-def main():
-    st.title("")
 
    
-    if st.button("🎨 Instagram"):
-        st.markdown("[](https://www.instagram.com/egidijauss/)")
+   
 
-    
-    if st.button("💖 Youtube"):
-        st.markdown("[](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+def main():
+   if
 
-  
-    if st.button("🧢 Facebook"):
-        st.markdown("[](https://www.facebook.com/EgiFoto)")
-
+   st.sidebar.markdown("[Visit instagram🎨](https://www.instagram.com/egidijauss/)")
+   st.sidebar.markdown("[Visit Youtube💖](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+   st.sidebar.markdown("[Visit Facebook🧢](https://www.facebook.com/EgiFoto)")
 if __name__ == "__main__":
     main()
-
-st.sidebar.markdown("[Visit instagram🎨](https://www.instagram.com/egidijauss/)")
-
-st.sidebar.markdown("[Visit Youtube💖](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-st.sidebar.markdown("[Visit Facebook🧢](https://www.facebook.com/EgiFoto)")
 
    
 
