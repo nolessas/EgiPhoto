@@ -10,15 +10,12 @@ def main():
     
 
     if st.sidebar.button("🎨 Instagram"):
-        st.sidebar.write("Instagram button clicked")
         st.sidebar.markdown("[Visit Instagram](https://www.instagram.com/egidijauss/)")
 
     if st.sidebar.button("💖 Youtube"):
-        st.sidebar.write("Youtube button clicked")
         st.sidebar.markdown("[Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 
     if st.sidebar.button("🧢 Facebook"):
-        st.sidebar.write("Facebook button clicked")
         st.sidebar.markdown("[Visit Facebook](https://www.facebook.com/EgiFoto)")
 
 if __name__ == "__main__":
