@@ -4,7 +4,32 @@ import os
 from streamlit_lottie import st_lottie
 import json
 from natsort import natsorted
-  
+
+st.image("logo2.png")
+
+# Use local CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+local_css("style/style.css")
+
+def load_lottiefile(filepath: str):
+   with open(filepath, "r") as f:
+      return json.load(f)
+
+lottie_coding = load_lottiefile("lottiefile/coding.json")
+
+st.title("")
+st_lottie(
+   lottie_coding,
+   speed=1,
+   reverse=True,
+   loop=True,
+)
+
+
+
+    
 def main():
  if st.sidebar.button("Susisiekti"):
    st.sidebar.markdown("[🎨Visit instagram](https://www.instagram.com/egidijauss/)")
@@ -14,6 +39,12 @@ def main():
 if __name__ == "__main__":
     main()
 
+
+
+
+import streamlit as st
+import os
+from natsort import natsorted
 
 # Path to the folder containing images
 image_folder = "folder1"
