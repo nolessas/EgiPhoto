@@ -6,7 +6,7 @@ import os
 def main():
     st.title("Smagaus žiūrėjimo!")
 
-    def main():
+def main():
  if st.sidebar.button("Susisiekti"):
    st.sidebar.markdown("[🎨Visit instagram](https://www.instagram.com/egidijauss/)")
    st.sidebar.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
