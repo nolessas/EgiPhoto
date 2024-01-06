@@ -10,7 +10,7 @@ def authenticate(username, password):
 def read_messages(user):
     filename = f"{user}_chat.txt"
     if os.path.exists(filename):
-        with open(filename, "r") as file:
+        with open(filename, "r+") as file:
             messages = file.readlines()
             return messages
     else:
