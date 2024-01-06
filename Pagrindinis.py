@@ -10,7 +10,7 @@ def main():
     
 
     if st.sidebar.button("🎨 Instagram"):
-        st.sidebar.markdown("[@Visit instagram](https://www.instagram.com/egidijauss/)")
+        st.sidebar.markdown("[Visit instagram](https://www.instagram.com/egidijauss/)")
 
     if st.sidebar.button("💖 Youtube"):
         st.sidebar.markdown("[Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
