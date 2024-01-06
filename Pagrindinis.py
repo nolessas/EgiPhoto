@@ -2,7 +2,7 @@ import streamlit as st
 import os
 from natsort import natsorted
 
-
+st.image("logo2.png")
 
 # Use local CSS
 def local_css(file_name):
@@ -17,7 +17,7 @@ if st.button("Susisiekti"):
     st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)")
     st.markdown("")
 
-st.image("logo2.png")
+
 
 def display_nuotraukos():
     # Path to the folder containing images
