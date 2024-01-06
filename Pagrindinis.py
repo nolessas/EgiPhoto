@@ -3,6 +3,7 @@ import numpy as np
 import webbrowser
 
 
+
 def open_url(url):
     webbrowser.open_new_tab(url)
 
@@ -10,12 +11,15 @@ def main():
     st.title("Social Media Links")
 
     if st.sidebar.button("🎨 Instagram"):
+        st.write("Instagram button clicked")
         open_url("https://www.instagram.com/egidijauss/")
 
     if st.sidebar.button("💖 Youtube"):
+        st.write("Youtube button clicked")
         open_url("https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ")
 
     if st.sidebar.button("🧢 Facebook"):
+        st.write("Facebook button clicked")
         open_url("https://www.facebook.com/EgiFoto")
 
 if __name__ == "__main__":
