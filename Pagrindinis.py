@@ -5,12 +5,33 @@ from streamlit_lottie import st_lottie
 import base64
 from natsort import natsorted
 
+st.title("")
+
+# Use columns to create a responsive layout
+col1, col2 = st.columns(2)
+col1.write("Left column content")
+col2.write("Right column content")
+
 st.markdown(
     """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     """,
     unsafe_allow_html=True,
 )
+
+st.markdown(
+    """
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
 
 
 st.image("logo2.png")
