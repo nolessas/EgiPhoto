@@ -15,12 +15,6 @@ if __name__ == "__main__":
     main()
 
 
-
-
-import streamlit as st
-import os
-from natsort import natsorted
-
 # Path to the folder containing images
 image_folder = "folder1"
 
