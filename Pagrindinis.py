@@ -4,7 +4,15 @@ import webbrowser
 
 
 
-import streamlit as st
+def main():
+ if st.sidebar.button("Susisiekti"):
+
+   st.sidebar.markdown("[Visit instagram🎨](https://www.instagram.com/egidijauss/)")
+   st.sidebar.markdown("[Visit Youtube💖](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+   st.sidebar.markdown("[Visit Facebook🧢](https://www.facebook.com/EgiFoto)")
+   st.sidebar.markdown("")
+if __name__ == "__main__":
+    main()
 
 
    
@@ -46,14 +54,7 @@ st.image('1.jpg', caption='Sunrise by the mountains')
    
    
 
-def main():
- if st.button("🎨 Instagram"):
 
-   st.sidebar.markdown("[Visit instagram🎨](https://www.instagram.com/egidijauss/)")
-   st.sidebar.markdown("[Visit Youtube💖](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-   st.sidebar.markdown("[Visit Facebook🧢](https://www.facebook.com/EgiFoto)")
-if __name__ == "__main__":
-    main()
 
    
 
