@@ -25,7 +25,7 @@ def send_message(user, message):
 
 # Streamlit App
 def main():
-    st.title("Chat Application")
+    st.title("")
 
     # Default User
     user = "Client"  # You can change this to your desired default name
