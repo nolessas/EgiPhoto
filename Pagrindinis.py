@@ -1,10 +1,6 @@
 import streamlit as st
 import numpy as np
-import datetime
-import webbrowser
-import os
 from streamlit_lottie import st_lottie
-from PIL import Image
 import requests
 import json
 
