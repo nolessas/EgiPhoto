@@ -5,25 +5,12 @@ from streamlit_lottie import st_lottie
 import base64
 from natsort import natsorted
 
-# Add custom CSS for mobile responsiveness
 st.markdown(
     """
-    <style>
-        .reportview-container {
-            width: 100%;
-            padding-left: 0;
-            padding-right: 0;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     """,
     unsafe_allow_html=True,
 )
-
-# Rest of your Streamlit app
-st.title("")
-
-# Your other Streamlit components...
-
 
 
 st.image("logo2.png")
