@@ -1,4 +1,6 @@
 import streamlit as st
+import numpy as np
+import webbrowser
 import os
 
 def main():
