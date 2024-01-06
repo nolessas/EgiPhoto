@@ -25,7 +25,7 @@ st.title("")
 st_lottie(
    lottie_coding,
    speed=1,
-   reverse=false,
+   reverse=False,
    loop=True,
 )
 
