@@ -3,32 +3,21 @@ import numpy as np
 import webbrowser
 
 
-def open_instagram():
-    youtube_url = 'https://www.instagram.com/egidijauss/'
-    webbrowser.open_new_tab(youtube_url)
+def open_url(url):
+    webbrowser.open_new_tab(url)
+
 def main():
-    if st.sidebar.button("🎨Instagram"):
-        open_instagram()
-if __name__ == "__main__":
-    main()
+    st.title("Social Media Links")
 
+    if st.sidebar.button("🎨 Instagram"):
+        open_url("https://www.instagram.com/egidijauss/")
 
-def open_youtube():
-    youtube_url = 'https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ'
-    webbrowser.open_new_tab(youtube_url)
-def main():
-    if st.sidebar.button("💖Youtube"):
-        open_youtube()
-if __name__ == "__main__":
-    main()
+    if st.sidebar.button("💖 Youtube"):
+        open_url("https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ")
 
+    if st.sidebar.button("🧢 Facebook"):
+        open_url("https://www.facebook.com/EgiFoto")
 
-def open_facebook():
-    facebook_url = 'https://www.facebook.com/EgiFoto'
-    webbrowser.open_new_tab(facebook_url)
-def main():
-    if st.sidebar.button("🧢Facebook"):
-        open_facebook()
 if __name__ == "__main__":
     main()
 
