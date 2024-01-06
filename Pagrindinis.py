@@ -28,10 +28,6 @@ header {
 
 
 
-# Display inline CSS
-st.markdown(inline_css, unsafe_allow_html=True)
-
-
 
 # Use local CSS
 def local_css(file_name):
