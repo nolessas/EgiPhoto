@@ -23,7 +23,7 @@ def main():
 
         # Append the new user input to the DataFrame
         try:
-            df = df.append({"Text": user_input}, ignore_index=True)
+            df = pd.concat([df, pd.DataFrame({"Text": [user_input]})], ignore_index=True)
         except Exception as e:
             st.error(f"Error appending to DataFrame: {e}")
             return
@@ -48,6 +48,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
