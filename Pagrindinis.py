@@ -36,6 +36,12 @@ body {
 """
 st.markdown(custom_css, unsafe_allow_html=True)
 
+viewport_meta_tag = """
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+"""
+st.markdown(viewport_meta_tag, unsafe_allow_html=True)
+
+
 
 
 
