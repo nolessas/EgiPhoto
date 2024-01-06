@@ -10,13 +10,22 @@ external_css = """
 /* Your custom CSS styles go here */
 body {
     background-color: #f0f0f0;
-    
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
+}
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
 }
 </style>
 """
+
 
 
 # Display inline CSS
