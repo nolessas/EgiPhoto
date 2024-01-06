@@ -10,15 +10,6 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 local_css("style/style.css")
 
-# Sidebar content
-if st.button("Susisiekti"):
-    st.markdown("[🎨Visit instagram](https://www.instagram.com/egidijauss/)")
-    st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-    st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)")
-    st.markdown("")
-
-
-
 def display_nuotraukos():
     # Path to the folder containing images
     image_folder = "folder1"
@@ -73,6 +64,15 @@ def display_contact_form():
 
 # Create a layout with three columns
 col1, col2, col3 = st.columns(3)
+
+# Content
+
+with col1:
+   st.markdown("[🎨Visit instagram](https://www.instagram.com/egidijauss/)")
+with col2:
+   st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+with col3:
+   st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)")
 
 # Create buttons in each column
 if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
