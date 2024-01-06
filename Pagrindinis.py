@@ -7,24 +7,24 @@ import webbrowser
 import streamlit as st
 
 def main():
-    st.title("Social Media Links")
+    st.title("")
 
     if st.sidebar.button(""):
       
-        st.markdown("[Visit Instagram](https://www.instagram.com/egidijauss/)")
+        st.markdown("[](https://www.instagram.com/egidijauss/)")
 
     if st.sidebar.button(""):
         
-        st.markdown("[Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+        st.markdown("[](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 
     if st.sidebar.button(""):
     
-        st.markdown("[Visit Facebook](https://www.facebook.com/EgiFoto)")
+        st.markdown("[](https://www.facebook.com/EgiFoto)")
 
 if __name__ == "__main__":
     main()
 
-st.sidebar.markdown("[Visit instagram](https://www.instagram.com/egidijauss/)")
+st.sidebar.markdown("[Visit instagram🎨](https://www.instagram.com/egidijauss/)")
 
 st.sidebar.markdown("[Visit Youtube💖](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 st.sidebar.markdown("[Visit Facebook🧢](https://www.facebook.com/EgiFoto)")
