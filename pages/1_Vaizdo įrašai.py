@@ -4,6 +4,9 @@ import os
 import pandas as pd
 
 
+import streamlit as st
+import pandas as pd
+
 def main():
     st.title("User Input Text Saver")
 
@@ -39,9 +42,12 @@ def main():
         st.dataframe(existing_data)
     except FileNotFoundError:
         st.info("No existing data.")
+    except Exception as e:
+        st.error(f"Error reading CSV file: {e}")
 
 if __name__ == "__main__":
     main()
+
 
 
 
