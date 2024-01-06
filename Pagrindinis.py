@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
-
-
+import webbrowser
 
 
 def open_instagram():
@@ -33,6 +32,7 @@ def main():
 if __name__ == "__main__":
     main()
 
+   
    
 
 st.image("logo.png")
