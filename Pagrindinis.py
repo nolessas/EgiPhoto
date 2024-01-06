@@ -4,17 +4,20 @@ from natsort import natsorted
 
 st.image("logo2.png")
 
-# Inline CSS
-inline_css = """
+# Define the external CSS
+external_css = """
 <style>
-  body {
-    background-color: #F0F0F0;
-    color: #333333;
-    font-family: 'Arial', sans-serif;
-  }
-  /* Add more styles as needed */
+/* Your custom CSS styles go here */
+body {
+    background-color: #f0f0f0;
+    
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+}
 </style>
 """
+
 
 # Display inline CSS
 st.markdown(inline_css, unsafe_allow_html=True)
