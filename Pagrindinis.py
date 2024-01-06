@@ -26,6 +26,17 @@ header {
 </style>
 """
 
+custom_css = """
+<style>
+/* Your custom CSS styles go here */
+body {
+    max-width: 100%;
+}
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
+
+
 
 
 
