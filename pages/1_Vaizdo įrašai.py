@@ -34,6 +34,7 @@ def main():
             st.success("Text saved successfully!")
         except Exception as e:
             st.error(f"Error saving DataFrame to CSV: {e}")
+            st.error(f"DataFrame content:\n{df}")
 
     # Display the existing data
     st.title("Existing User Input")
@@ -47,6 +48,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
