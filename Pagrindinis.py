@@ -9,16 +9,16 @@ import streamlit as st
 def main():
     st.title("Social Media Links")
 
-    if st.sidebar.button("🎨 Instagram"):
-        st.write("Instagram button clicked")
+    if st.sidebar.button(""):
+      
         st.markdown("[Visit Instagram](https://www.instagram.com/egidijauss/)")
 
-    if st.sidebar.button("💖 Youtube"):
-        st.write("Youtube button clicked")
+    if st.sidebar.button(""):
+        
         st.markdown("[Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 
-    if st.sidebar.button("🧢 Facebook"):
-        st.write("Facebook button clicked")
+    if st.sidebar.button(""):
+    
         st.markdown("[Visit Facebook](https://www.facebook.com/EgiFoto)")
 
 if __name__ == "__main__":
