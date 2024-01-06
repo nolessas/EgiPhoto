@@ -35,9 +35,6 @@ for i, image_file in enumerate(image_files):
 
 
 
-
-
-st.image("logo2.png")
     
 def main():
  if st.sidebar.button("Susisiekti"):
