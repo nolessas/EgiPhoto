@@ -41,12 +41,6 @@ if __name__ == "__main__":
 
 
 
-# Path to the folder containing images
-image_folder = "folder1"
-
-# List all files in the folder
-image_files = os.listdir(image_folder)
-
 for image_file in image_files:
     # Construct the full path to the image file
     image_path = os.path.join(image_folder, image_file)
