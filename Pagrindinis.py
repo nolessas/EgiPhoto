@@ -20,7 +20,7 @@ st.markdown(
 )
 
 # Rest of your Streamlit app
-st.title("My Streamlit App")
+st.title("")
 
 # Your other Streamlit components...
 
