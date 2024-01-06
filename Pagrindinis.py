@@ -52,8 +52,11 @@ for image_file in image_files:
     # Construct the full path to the image file
     image_path = os.path.join(image_folder, image_file)
 
-    # Display the image
-    st.image(image_path, use_column_width=True)
-
+    try:
+        # Display the image
+        st.image(image_path, use_column_width=True)
+    except Exception as e:
+        # Log the error and continue to the next image
+        st.write(f"Error displaying image '{image_path}': {e}")
 
 
