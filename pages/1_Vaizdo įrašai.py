@@ -3,6 +3,7 @@ import streamlit as st
 import os
 import pandas as pd
 
+
 def main():
     st.title("User Input Text Saver")
 
@@ -10,19 +11,26 @@ def main():
     user_input = st.text_input("Enter your text:")
 
     if st.button("Save Text"):
-        # Load existing data or create a new DataFrame
         try:
+            # Try loading existing data
             df = pd.read_csv("user_input.csv")
         except FileNotFoundError:
+            # If the file doesn't exist, create a new DataFrame
             df = pd.DataFrame(columns=["Text"])
 
         # Append the new user input to the DataFrame
-        df = df.append({"Text": user_input}, ignore_index=True)
+        try:
+            df = df.append({"Text": user_input}, ignore_index=True)
+        except Exception as e:
+            st.error(f"Error appending to DataFrame: {e}")
+            return
 
         # Save the DataFrame to a CSV file
-        df.to_csv("user_input.csv", index=False)
-
-        st.success("Text saved successfully!")
+        try:
+            df.to_csv("user_input.csv", index=False)
+            st.success("Text saved successfully!")
+        except Exception as e:
+            st.error(f"Error saving DataFrame to CSV: {e}")
 
     # Display the existing data
     st.title("Existing User Input")
@@ -34,7 +42,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
 
