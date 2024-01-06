@@ -5,11 +5,6 @@ from streamlit_lottie import st_lottie
 import base64
 from natsort import natsorted
 
-
-import streamlit as st
-import os
-from natsort import natsorted
-
 # Viewport Meta Tag to prevent wiggling on iPhone
 st.markdown(
     """
@@ -38,33 +33,6 @@ for i, image_file in enumerate(image_files):
     else:
         col2.image(image_path, use_column_width=True, caption=f"Image {i+1}")
 
-
-
-
-image_bytes = base64.b64encode(image).decode()
-local_file = f'<p style="text-align:center;"><img src="data:image/jpeg;base64,{image_bytes}" alt="Image" width=300></p>'
-
-st.markdown(local_file, unsafe_allow_html=True)
-
-
-st.markdown(
-    """
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    """,
-    unsafe_allow_html=True,
-)
-
-st.markdown(
-    """
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 
 
