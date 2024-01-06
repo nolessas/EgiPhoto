@@ -19,12 +19,13 @@ def read_messages(user):
 # Function to send a message
 def send_message(user, message):
     filename = f"{user}_chat.txt"
+    os.makedirs(os.path.dirname(filename), exist_ok=True)  # Create directory if it doesn't exist
     with open(filename, "a") as file:
         file.write(f"{message}\n")
 
 # Streamlit App
 def main():
-    st.title("")
+    st.title("Chat Application")
 
     # Default User
     user = "Client"  # You can change this to your desired default name
@@ -44,13 +45,6 @@ def main():
             st.error("Invalid credentials. Please try again.")
 
 def show_chat_box(user):
-    
-
-    
-    
-
-    
-
     # Display Chat History
     st.title(f"Chat History for {user}")
     messages = read_messages(user)
