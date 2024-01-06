@@ -5,6 +5,20 @@ from streamlit_lottie import st_lottie
 import base64
 from natsort import natsorted
 
+st.markdown(
+    """
+    <style>
+        .reportview-container {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
 st.image("logo2.png")
     
 def main():
