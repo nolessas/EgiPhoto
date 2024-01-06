@@ -2,6 +2,8 @@ import streamlit as st
 import os
 from natsort import natsorted
 
+st.image("logo2.png")
+
 # Inline CSS
 inline_css = """
 <style>
@@ -17,7 +19,7 @@ inline_css = """
 # Display inline CSS
 st.markdown(inline_css, unsafe_allow_html=True)
 
-st.image("logo2.png")
+
 
 # Use local CSS
 def local_css(file_name):
