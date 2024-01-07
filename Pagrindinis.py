@@ -13,9 +13,15 @@ body {
     max-width: 100%;
     overflow-x: hidden;
 }
+
+/* Disable touch actions to prevent horizontal scrolling on mobile */
+body, html {
+    touch-action: pan-y;
+}
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
+
 
 
 
