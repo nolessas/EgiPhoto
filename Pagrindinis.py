@@ -10,17 +10,20 @@ external_css = """
 /* Your custom CSS styles go here */
 body {
     background-color: #f0f0f0;
-    max-width: 100%;
-    overflow-x: hidden;
-    height: 100vh; /* Set a fixed height for the body element */
 }
 
 #MainMenu, footer, header {
     display: none;
 }
+
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
 </style>
 """
 st.markdown(external_css, unsafe_allow_html=True)
+
 
 
 
