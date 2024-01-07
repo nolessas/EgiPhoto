@@ -6,7 +6,6 @@ import base64
 
 st.image("logo2.png")
 
-
 # Define the external CSS
 external_css = """
 <style>
@@ -29,6 +28,8 @@ viewport_meta_tag = """
 """
 st.markdown(viewport_meta_tag, unsafe_allow_html=True)
 
+# The rest of your Streamlit app remains unchanged
+# ...
 
 # Use local CSS
 def local_css(file_name):
@@ -36,9 +37,6 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 local_css("style/style.css")
-
-
-
 
 def display_nuotraukos():
     # Path to the folder containing images
@@ -48,15 +46,15 @@ def display_nuotraukos():
     image_files = natsorted(os.listdir(image_folder))
 
     # Display each image in the folder
-    for image_file in image_files:
+    for i, image_file in enumerate(image_files):
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
         # Display the image
-        st.image(image_path, use_column_width=True)
-
-# Create a layout with three columns
-col1, col2, col3 = st.columns(3)
+        if i % 2 == 0:
+            st.image(image_path, use_column_width=True)
+        else:
+            st.image(image_path, use_column_width=True, width=0.5)
 
 
 
