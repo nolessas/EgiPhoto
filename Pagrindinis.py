@@ -108,33 +108,28 @@ local_css("style/style.css")
 
 
 
-# Path to the folder containing images
-image_folder = "folder1"
-# List all files in the folder and sort them naturally
-image_files = natsorted(os.listdir(image_folder))
+def display_nuotraukos():
+    # Path to the folder containing images
+    image_folder = "folder1"
 
-# Display each image in the folder
-for image_file in image_files:
-    # Construct the full path to the image file
-    image_path = os.path.join(image_folder, image_file)
+    # List all files in the folder and sort them naturally
+    image_files = natsorted(os.listdir(image_folder))
 
-    # Open the image using PIL
-    img = Image.open(image_path)
+    # Display each image in the folder
+    for image_file in image_files:
+        # Construct the full path to the image file
+        image_path = os.path.join(image_folder, image_file)
 
-    # Resize the image to a smaller size
-    new_width, new_height = 100, 100  # Adjust dimensions as needed
-    img = img.resize((new_width, new_height), Image.ANTIALIAS)
+        # Generate HTML with fixed size for the image
+        html_code = f"""
+        <div style='width: 70%; margin: 0 auto;'>
+            <img style='width: 100%; height: auto;' src='file://{image_path}'>
+        </div>
+        """
 
-    # Convert the image to bytes and encode as base64
-    img_bytes = io.BytesIO()
-    img.save(img_bytes, format="JPEG")
-    img_str = base64.b64encode(img_bytes.getvalue()).decode("utf-8")
+        # Display HTML code
+        st.markdown(html_code, unsafe_allow_html=True)
 
-    # Display the image using HTML workaround
-    html = f"""<div style='width:100%; display:block; overflow:hidden'>
-                <img style='width:100%' src='data:image/jpeg;base64,{img_str}'>
-           </div>"""
-    st.markdown(html, unsafe_allow_html=True)
 
 
 
