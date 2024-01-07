@@ -128,6 +128,7 @@ def display_nuotraukos():
 
 
 
+
 def display_vaizdo_irasai():
     st.title("Smagaus žiūrėjimo!")
 
