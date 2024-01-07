@@ -7,34 +7,9 @@ import base64
 st.image("logo2.png")
 
 
-# Function to encode a Matplotlib figure as PNG
-def encode_fig(fig):
-    buf = io.BytesIO()
-    fig.savefig(buf, format="png", bbox_inches="tight", pad_inches=0.1)
-    buf.seek(0)
-    return base64.b64encode(buf.read()).decode("utf-8")
 
 
-# Image workaround
-with open("outputs_pdf/foo.png", "rb") as img_file:
-    my_string = base64.b64encode(img_file.read())
-    s = my_string.decode('UTF-8')
-html = f"""<div style='width:100%; display:block; overflow:hidden'>
-                <img style='margin-top:-140px; width:100%' src='data:image/jpeg;base64,{str(s)}'>
-           </div>"""
-st.markdown(html, unsafe_allow_html=True)
 
-# Matplotlib plot workaround
-fig, ax = plt.subplots()
-ax.plot([1, 2, 3], [4, 5, 6])
-plt.title("Matplotlib Plot")
-plt.xlabel("X-axis")
-plt.ylabel("Y-axis")
-st.image(encode_fig(fig), format="PNG", use_container_width=True)
-
-# ... (your other content remains unchanged)
-
-# Define the external CSS
 external_css = """
 <style>
 /* Your custom CSS styles go here */
@@ -118,7 +93,6 @@ local_css("style/style.css")
 
 
 
-from PIL import Image
 
 def display_nuotraukos():
     # Path to the folder containing images
@@ -135,8 +109,17 @@ def display_nuotraukos():
         # Open the image using PIL
         img = Image.open(image_path)
 
-        # Display the image
-        st.image(img, caption='', use_column_width=True)
+        # Convert the image to bytes and encode as base64
+        img_bytes = io.BytesIO()
+        img.save(img_bytes, format="PNG")
+        img_str = base64.b64encode(img_bytes.getvalue()).decode("utf-8")
+
+        # Display the image using HTML workaround
+        html = f"""<div style='width:100%; display:block; overflow:hidden'>
+                    <img style='width:100%' src='data:image/png;base64,{img_str}'>
+               </div>"""
+        st.markdown(html, unsafe_allow_html=True)
+
 
 
 
