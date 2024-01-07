@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
 st.markdown(custom_js, unsafe_allow_html=True)
 
 
+
+
+st.set_page_config(layout="wide")
+
+st.image("logo2.png")
+
 # Define the external CSS
 external_css = """
 <style>
@@ -27,7 +33,6 @@ external_css = """
 body {
     background-color: #f0f0f0;
     max-width: 100%;
-    overflow-x: hidden;
 }
 
 #MainMenu, footer, header {
@@ -36,6 +41,10 @@ body {
 </style>
 """
 st.markdown(external_css, unsafe_allow_html=True)
+
+# ... (rest of your code remains unchanged)
+
+
 
 
 viewport_meta_tag = """
