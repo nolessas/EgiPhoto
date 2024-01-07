@@ -12,11 +12,11 @@ custom_css = """
 body {
     max-width: 100%;
     overflow-x: hidden;
-    overscroll-behavior-x: contain;
 }
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
+
 
 
 viewport_meta_tag = """
