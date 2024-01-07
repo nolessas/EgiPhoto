@@ -8,25 +8,54 @@ import pandas as pd
 
 
 
-
-
 import streamlit as st
-import time
+import base64
 
+# Function to load image with caching
+@st.cache_data
+def load_image(image_path):
+    with open(image_path, "rb") as f:
+        return f.read()
 
-
-image_placeholder = st.empty()
-
+# Path to the logo2.png image
 image_path = "logo2.png"
 
-for i in range(1, 101):
-    image_placeholder.image(image_path, use_column_width=True)
-    time.sleep(0.01)  # Adjust the speed of the sliding effect
+# Load the image
+image_data = load_image(image_path)
 
-# Display the final image
-image_placeholder.image(image_path, use_column_width=True)
+# Encode image data as base64
+image_base64 = base64.b64encode(image_data).decode("utf-8")
 
+# HTML, CSS, and JavaScript code for sliding animation
+html_code = f"""
+<style>
+    #logo-container {{
+        position: relative;
+        width: 100%;
+        height: 300px;  /* Adjust the height as needed */
+        overflow: hidden;
+    }}
 
+    #logo {{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: slide 2s forwards;  /* Adjust the animation duration as needed */
+    }}
+
+    @keyframes slide {{
+        from {{ left: 100%; }}
+        to {{ left: 0; }}
+    }}
+</style>
+
+<div id="logo-container">
+    <img id="logo" src="data:image/png;base64,{image_base64}" alt="Logo">
+</div>
+"""
+
+# Display the HTML content
+st.markdown(html_code, unsafe_allow_html=True)
 
 
 
