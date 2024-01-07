@@ -40,6 +40,8 @@ local_css("style/style.css")
 
 
 
+from PIL import Image
+
 def display_nuotraukos():
     # Path to the folder containing images
     image_folder = "folder1"
@@ -62,9 +64,7 @@ def display_nuotraukos():
         img_resized = img.resize((new_width, new_height))
 
         # Display the resized image with adjusted spacing
-        st.image(img_resized, use_column_width=True, output_format="JPEG", format="JPEG", caption='', width=100, clamp=True)
-
-
+        st.image(img_resized, use_column_width=True, caption='', output_format="JPEG", format="JPEG")
 
 
 
