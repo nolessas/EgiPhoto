@@ -80,22 +80,25 @@ def display_nuotraukos():
         st.image(img_resized, use_column_width=True)
 
 
-def display_vaizdo_irasai():
-    st.title("Smagaus žiūrėjimo!")
+with col1:
+    # Create buttons in the left column
+    if st.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
+        st.image("logo2.png")
 
-    # Display the video player
-    videos = [
-        "https://www.youtube.com/watch?v=Tn-KRogA23g",
-        "https://www.youtube.com/watch?v=Jt7c8B0bJUE",
-        "https://www.youtube.com/watch?v=qoDU7cW7PH4",
-        "https://www.youtube.com/watch?v=k2kp3einuKI",
-        "https://www.youtube.com/watch?v=_qgFKvRGt_o",
-        "https://www.youtube.com/watch?v=jLYcNT3NoBU",
-        "https://www.youtube.com/watch?v=rT6dSMf9PuE",
-        "https://www.youtube.com/watch?v=QEH55D8sOs8",
-        "https://www.youtube.com/watch?v=pq6Zvqp6X7o",
-        "https://www.youtube.com/watch?v=74wtkfG9ssw",
-    ]
+    if st.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
+        # Display the video player
+        videos = [
+            "https://www.youtube.com/watch?v=Tn-KRogA23g",
+            "https://www.youtube.com/watch?v=Jt7c8B0bJUE",
+            "https://www.youtube.com/watch?v=qoDU7cW7PH4",
+            "https://www.youtube.com/watch?v=k2kp3einuKI",
+            "https://www.youtube.com/watch?v=_qgFKvRGt_o",
+            "https://www.youtube.com/watch?v=jLYcNT3NoBU",
+            "https://www.youtube.com/watch?v=rT6dSMf9PuE",
+            "https://www.youtube.com/watch?v=QEH55D8sOs8",
+            "https://www.youtube.com/watch?v=pq6Zvqp6X7o",
+            "https://www.youtube.com/watch?v=74wtkfG9ssw",
+        ]
 
     for video_url in videos:
         st.video(video_url)
@@ -119,13 +122,12 @@ def display_contact_form():
 
 col1, col2, col3 = st.columns(3)
 
-# Content
-with col1:
-    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
+# Content in the right column
 with col2:
-    st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-with col3:
-    st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
+    # Social media links to the right
+    st.markdown("[🎨Visit Instagram](https://www.instagram.com/egidijauss/)", key="instagram_link")
+    st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)", key="youtube_link")
+    st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)", key="facebook_link")
 
 
 if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
