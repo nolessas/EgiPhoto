@@ -131,7 +131,7 @@ def display_contact_form():
 
     st.markdown(contact_form, unsafe_allow_html=True)
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([2, 1])
 
 # Content
 with col2:
