@@ -53,8 +53,8 @@ def display_nuotraukos():
         # Open the image using PIL
         img = Image.open(image_path)
 
-        # Calculate the desired width as 70% of the current width
-        desired_width = int(img.width * 0.7)
+        # Calculate the desired width as 50% of the current width
+        desired_width = int(img.width * 0.5)
 
         # Resize the image
         img_resized = img.resize((desired_width, int(img.height * (desired_width / img.width))))
