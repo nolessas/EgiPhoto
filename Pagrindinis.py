@@ -5,8 +5,6 @@ from natsort import natsorted
 st.image("logo2.png")
 
 
-
-
 custom_css = """
 <style>
 /* Your custom CSS styles go here */
@@ -18,12 +16,6 @@ body {
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
-
-
-
-
-
-
 
 
 viewport_meta_tag = """
@@ -51,8 +43,9 @@ def display_nuotraukos():
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Display the image
-        st.image(image_path, use_column_width=True)
+        # Display the image with 90% width
+        st.image(image_path, use_column_width=True, width=0.9)
+
 
 def display_vaizdo_irasai():
     st.title("Smagaus žiūrėjimo!")
