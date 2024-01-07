@@ -46,7 +46,7 @@ def display_nuotraukos():
 
         # Display the image with a smaller size using custom CSS
         st.markdown(
-            f'<img src="{image_path}" style="max-width:30%; height:auto;">',
+            f'<img src="file://{image_path}" style="max-width:30%; height:auto;">',
             unsafe_allow_html=True
         )
 
