@@ -131,14 +131,9 @@ def display_contact_form():
 
     st.markdown(contact_form, unsafe_allow_html=True)
 
-left_col, right_col = st.columns([2, 1])
+left_col, right_col = st.columns([2, 1])  # Adjust column widths as needed
 
-with right_col:
-    # Social media links to the right
-    st.markdown("[🎨Visit Instagram](https://www.instagram.com/egidijauss/)", key="instagram_link")
-    st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)", key="youtube_link")
-    st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)", key="facebook_link")
-
+# Content in the left column
 with left_col:
     # "Nuotraukos" button to the left
     if left_col.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
@@ -151,3 +146,10 @@ with left_col:
     # "Parašyk man žinutę!" button to the left
     if left_col.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
         display_contact_form()
+
+# Content in the right column
+with right_col:
+    # Social media links to the right
+    st.markdown("[🎨Visit Instagram](https://www.instagram.com/egidijauss/)", key="instagram_link")
+    st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)", key="youtube_link")
+    st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)", key="facebook_link")
