@@ -66,8 +66,14 @@ def display_nuotraukos():
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Display the image with a smaller size
-        st.image(image_path, use_column_width=True, output_format="JPEG")
+        # Embedding image with custom styling
+        html = f"""
+        <div style='width:100%; display:block; overflow-y:auto; height:100vh;'>
+            <img style='width:100%;' src='file://{image_path}'>
+        </div>
+        """
+
+        st.markdown(html, unsafe_allow_html=True)
 
 
 
