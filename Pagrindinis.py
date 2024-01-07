@@ -65,7 +65,7 @@ def display_social_links():
 # Display the selected tab or an empty page if no page is selected
 selected_tab = st.selectbox(
     "",
-    ["", "Nuotraukos", "Vaizdo įrašai", "Parašyk man žinutę", "Medija"]
+    ["Sveiki atvyke! Pasirinkite puslapį.", "Nuotraukos", "Vaizdo įrašai", "Parašyk man žinutę", "Medija"]
 )
 
 if selected_tab == "Nuotraukos":
@@ -77,4 +77,4 @@ elif selected_tab == "Parašyk man žinutę":
 elif selected_tab == "Medija":
     display_social_links()
 elif not selected_tab:
-    st.text("Pasirinkite puslapį.")
+    st.text("Sveiki atvyke! Pasirinkite puslapį.")
