@@ -133,20 +133,31 @@ def display_contact_form():
 
 col1, col2, col3, col4 = st.columns(4)
 
-# Content
-with col3:
+import streamlit as st
+
+# Create a layout with 3 rows and 2 columns
+col1, col2 = st.columns(2)
+
+# Content in the first row, first column
+with col1:
     st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
-with col3:
+
+# Content in the first row, second column
+with col2:
+    st.button("Nuotraukos", key="nuotraukos_button", help="Explore photos")
+
+# Content in the second row, first column
+with col1:
     st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-with col3:
+
+# Content in the second row, second column
+with col2:
+    st.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos")
+
+# Content in the third row, first column
+with col1:
     st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
 
-
-if col2.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
-    display_nuotraukos()  
-
-if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
-    display_vaizdo_irasai()
-
-if col2.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
-    display_contact_form()
+# Content in the third row, second column
+with col2:
+    st.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message")
