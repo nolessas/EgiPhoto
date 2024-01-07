@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import io
 from natsort import natsorted
 from PIL import Image
 import base64
