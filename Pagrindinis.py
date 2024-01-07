@@ -139,8 +139,8 @@ import streamlit as st
 col1, col2 = st.columns(2)
 
 # Content in the first row, first column
-with col1:
-    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
+
+    
 
 # Content in the first row, second column
 with col2:
@@ -161,3 +161,28 @@ with col1:
 # Content in the third row, second column
 with col2:
     st.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message")
+
+    import streamlit as st
+
+# Suskirstome eilutes ir stulpelius
+row1_col1, row1_col2, row1_col3 = st.columns(3)
+row2_col1, row2_col2, row2_col3 = st.columns(3)
+
+# Pirmoji eilutė
+with row1_col1:
+    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
+with row1_col2:
+    st.write("x")
+with row1_col3:
+    st.write("x")
+
+# Antroji eilutė
+with row2_col1:
+    st.write("y")
+with row2_col2:
+    st.write("y")
+with row2_col3:
+    st.write("y")
+
+
+
