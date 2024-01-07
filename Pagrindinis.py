@@ -64,7 +64,8 @@ def display_nuotraukos():
         img_resized = img.resize((new_width, new_height))
 
         # Display the resized image with adjusted spacing
-        st.image(img_resized, use_column_width=True, caption='', output_format="JPEG", format="JPEG")
+        st.image(img_resized, caption='', output_format="JPEG", format="JPEG", width=new_width)
+
 
 
 
