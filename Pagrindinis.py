@@ -17,12 +17,14 @@ body {
 }
 
 body {
-    max-width: 100vw;
-    overflow-x: hidden;
+    overscroll-behavior-x: none;
 }
 </style>
 """
 st.markdown(external_css, unsafe_allow_html=True)
+
+
+
 
 
 
