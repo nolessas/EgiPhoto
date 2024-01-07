@@ -44,7 +44,7 @@ def display_nuotraukos():
         image_path = os.path.join(image_folder, image_file)
 
         # Display the image with 90% width
-        st.image(image_path, use_column_width=True, width=0.5)
+        st.image(image_path, use_column_width=True, width=0.1)
 
 
 def display_vaizdo_irasai():
