@@ -7,39 +7,6 @@ import base64
 
 st.image("logo2.png")
 
-# Define the external CSS
-external_css = """
-<style>
-/* Your custom CSS styles go here */
-body {
-    background-color: #f0f0f0;
-    max-width: 100%;
-}
-
-#MainMenu, footer, header {
-    display: none;
-}
-</style>
-"""
-st.markdown(external_css, unsafe_allow_html=True)
-
-# Embed JavaScript to disable horizontal scrolling
-custom_js = """
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('scroll', function() {
-        // Disable horizontal scrolling
-        window.scrollTo(window.scrollX, window.scrollY);
-    });
-});
-</script>
-"""
-st.markdown(custom_js, unsafe_allow_html=True)
-
-
-
-
-
 
 # Use local CSS
 def local_css(file_name):
@@ -47,6 +14,53 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 local_css("style/style.css")
+
+# Embed JavaScript to disable horizontal scrolling for images only
+custom_js = """
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function addImageListeners() {
+        var images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+            img.addEventListener('mousedown', function(event) {
+                var startX = event.pageX;
+                var startY = event.pageY;
+
+                img.addEventListener('mousemove', function(event) {
+                    var deltaX = Math.abs(startX - event.pageX);
+                    var deltaY = Math.abs(startY - event.pageY);
+
+                    if (deltaX > deltaY) {
+                        event.preventDefault();
+                    }
+                });
+
+                img.addEventListener('mouseup', function() {
+                    img.removeEventListener('mousemove', function() {});
+                });
+            });
+        });
+    }
+
+    addImageListeners();
+
+    // Add listener to detect when new images are added and apply the script to them
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes) {
+                addImageListeners();
+            }
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+"""
+st.markdown(custom_js, unsafe_allow_html=True)
+
+
+
 
 
 viewport_meta_tag = """
@@ -80,25 +94,22 @@ def display_nuotraukos():
         st.image(img_resized, use_column_width=True)
 
 
-with col1:
-    # Create buttons in the left column
-    if st.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
-        st.image("logo2.png")
+def display_vaizdo_irasai():
+    st.title("Smagaus žiūrėjimo!")
 
-    if st.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
-        # Display the video player
-        videos = [
-            "https://www.youtube.com/watch?v=Tn-KRogA23g",
-            "https://www.youtube.com/watch?v=Jt7c8B0bJUE",
-            "https://www.youtube.com/watch?v=qoDU7cW7PH4",
-            "https://www.youtube.com/watch?v=k2kp3einuKI",
-            "https://www.youtube.com/watch?v=_qgFKvRGt_o",
-            "https://www.youtube.com/watch?v=jLYcNT3NoBU",
-            "https://www.youtube.com/watch?v=rT6dSMf9PuE",
-            "https://www.youtube.com/watch?v=QEH55D8sOs8",
-            "https://www.youtube.com/watch?v=pq6Zvqp6X7o",
-            "https://www.youtube.com/watch?v=74wtkfG9ssw",
-        ]
+    # Display the video player
+    videos = [
+        "https://www.youtube.com/watch?v=Tn-KRogA23g",
+        "https://www.youtube.com/watch?v=Jt7c8B0bJUE",
+        "https://www.youtube.com/watch?v=qoDU7cW7PH4",
+        "https://www.youtube.com/watch?v=k2kp3einuKI",
+        "https://www.youtube.com/watch?v=_qgFKvRGt_o",
+        "https://www.youtube.com/watch?v=jLYcNT3NoBU",
+        "https://www.youtube.com/watch?v=rT6dSMf9PuE",
+        "https://www.youtube.com/watch?v=QEH55D8sOs8",
+        "https://www.youtube.com/watch?v=pq6Zvqp6X7o",
+        "https://www.youtube.com/watch?v=74wtkfG9ssw",
+    ]
 
     for video_url in videos:
         st.video(video_url)
@@ -122,12 +133,13 @@ def display_contact_form():
 
 col1, col2, col3 = st.columns(3)
 
-# Content in the right column
+# Content
+with col1:
+    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
 with col2:
-    # Social media links to the right
-    st.markdown("[🎨Visit Instagram](https://www.instagram.com/egidijauss/)", key="instagram_link")
-    st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)", key="youtube_link")
-    st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)", key="facebook_link")
+    st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+with col3:
+    st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
 
 
 if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
@@ -136,5 +148,5 @@ if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
 if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
     display_vaizdo_irasai()
 
- if st.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
-        st.header("Parašyk man žinutę!")
+if col3.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
+    display_contact_form()
