@@ -150,11 +150,8 @@ with left_col:
 # Content in the right column
 with right_col:
     # Social media links to the right
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown("[🎨Visit Instagram](https://www.instagram.com/egidijauss/)", key="instagram_link")
-    with col2:
-        st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)", key="youtube_link")
-    with col3:
-        st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)", key="facebook_link")
+    st.markdown("[🎨Visit Instagram](https://www.instagram.com/egidijauss/)", key="instagram_link")
+    st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)", key="youtube_link")
+    st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)", key="facebook_link")
+
 
