@@ -8,18 +8,6 @@ import base64
 st.image("logo2.png")
 
 
-# Open the image using PIL
-img = Image.open(image_path)
-
-# Resize the image to a smaller size
-img = img.resize((new_width, new_height), Image.ANTIALIAS)
-
-# Convert the image to bytes and encode as base64
-img_bytes = io.BytesIO()
-img.save(img_bytes, format="JPEG")
-img_str = base64.b64encode(img_bytes.getvalue()).decode("utf-8")
-
-
 
 
 external_css = """
