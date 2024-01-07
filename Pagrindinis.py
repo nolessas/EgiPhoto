@@ -22,6 +22,17 @@ body, html {
 """
 st.markdown(custom_css, unsafe_allow_html=True)
 
+custom_js = """
+<script>
+// Prevent horizontal scrolling on mobile
+document.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+}, { passive: false });
+</script>
+"""
+st.markdown(custom_js, unsafe_allow_html=True)
+
+
 
 
 
