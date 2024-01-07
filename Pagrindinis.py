@@ -4,6 +4,7 @@ from natsort import natsorted
 from PIL import Image
 
 st.image("logo2.png")
+layout="centered"
 
 def display_nuotraukos():
     st.header("Nuotraukos")
