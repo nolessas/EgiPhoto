@@ -5,6 +5,53 @@ from PIL import Image
 
 st.image("logo2.png")
 
+import streamlit as st
+
+# Add hammerjs library via CDN
+hammerjs_cdn = """
+<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+"""
+st.markdown(hammerjs_cdn, unsafe_allow_html=True)
+
+# Define the external CSS and JavaScript
+external_css = """
+<style>
+/* Your custom CSS styles go here */
+body {
+    background-color: #f0f0f0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#MainMenu, footer, header {
+    display: none;
+}
+</style>
+"""
+st.markdown(external_css, unsafe_allow_html=True)
+
+external_js = """
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Initialize HammerJS on the document body
+    var hammertime = new Hammer(document.body);
+
+    // Disable horizontal scrolling
+    hammertime.get("pan").set({ direction: Hammer.DIRECTION_VERTICAL });
+
+    // Prevent default touch behavior on swipe
+    document.body.addEventListener("touchmove", function(e) {
+        e.preventDefault();
+    });
+});
+</script>
+"""
+st.markdown(external_js, unsafe_allow_html=True)
+
+# The rest of your Streamlit app remains unchanged
+# ...
+
+
 custom_css = """
 <style>
 /* Your custom CSS styles go here */
