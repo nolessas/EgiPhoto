@@ -8,6 +8,12 @@ import base64
 st.image("logo2.png")
 
 
+body {
+  overflow-x: hidden;
+}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+
 # Use local CSS
 def local_css(file_name):
     with open(file_name) as f:
