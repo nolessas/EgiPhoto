@@ -50,17 +50,16 @@ def display_nuotraukos():
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Open the image using PIL
-        img = Image.open(image_path)
+        # Generate HTML with fixed size for the image
+        html_code = f"""
+        <div style='width: 70%; margin: 0 auto;'>
+            <img style='width: 100%; height: auto;' src='file://{image_path}'>
+        </div>
+        """
 
-        # Calculate the desired width as 50% of the current width
-        desired_width = int(img.width * 0.5)
+        # Display HTML code
+        st.markdown(html_code, unsafe_allow_html=True)
 
-        # Resize the image
-        img_resized = img.resize((desired_width, int(img.height * (desired_width / img.width))))
-
-        # Display the resized image
-        st.image(img_resized, caption='Image', use_column_width=True)
 
 
 
