@@ -7,6 +7,26 @@ import base64
 
 st.image("logo2.png")
 
+col1, col2, col3 = st.columns(3)
+
+# Content
+with col1:
+    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
+with col2:
+    st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+with col3:
+    st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
+
+
+if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
+    display_nuotraukos()  
+
+if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
+    display_vaizdo_irasai()
+
+if col3.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
+    display_contact_form()
+
 
 # Use local CSS
 def local_css(file_name):
@@ -131,22 +151,4 @@ def display_contact_form():
 
     st.markdown(contact_form, unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3)
 
-# Content
-with col1:
-    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
-with col2:
-    st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-with col3:
-    st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
-
-
-if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
-    display_nuotraukos()  
-
-if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
-    display_vaizdo_irasai()
-
-if col3.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
-    display_contact_form()
