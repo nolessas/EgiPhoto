@@ -4,22 +4,18 @@ from natsort import natsorted
 
 st.image("logo2.png")
 
-# Define the external CSS
-external_css = """
+custom_css = """
 <style>
 /* Your custom CSS styles go here */
 body {
-    background-color: #f0f0f0;
     max-width: 100%;
+    touch-action: pan-y;
     overflow-x: hidden;
-}
-
-#MainMenu, footer, header {
-    display: none;
 }
 </style>
 """
-st.markdown(external_css, unsafe_allow_html=True)
+st.markdown(custom_css, unsafe_allow_html=True)
+
 
 
 viewport_meta_tag = """
