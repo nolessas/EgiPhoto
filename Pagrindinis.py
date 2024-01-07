@@ -8,9 +8,6 @@ import pandas as pd
 
 
 
-import streamlit as st
-import base64
-
 # Function to load image with caching
 @st.cache_data
 def load_image(image_path):
