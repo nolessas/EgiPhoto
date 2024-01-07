@@ -2,6 +2,7 @@ import streamlit as st
 import os
 from natsort import natsorted
 from PIL import Image
+import base64
 
 st.image("logo2.png")
 
