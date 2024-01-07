@@ -18,6 +18,24 @@ local_css("style/style.css")
 
 # The rest of your code remains unchanged
 
+# Define the external CSS
+external_css = """
+<style>
+/* Your custom CSS styles go here */
+body {
+    background-color: #f0f0f0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#MainMenu, footer, header {
+    display: none;
+}
+</style>
+"""
+st.markdown(external_css, unsafe_allow_html=True)
+
+
 
 
 
