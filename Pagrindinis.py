@@ -4,6 +4,12 @@ from natsort import natsorted
 
 st.image("logo2.png")
 
+import streamlit as st
+import os
+from natsort import natsorted
+
+st.image("logo2.png")
+
 # Define the external CSS
 external_css = """
 <style>
@@ -21,9 +27,12 @@ body {
 st.markdown(external_css, unsafe_allow_html=True)
 
 viewport_meta_tag = """
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 """
 st.markdown(viewport_meta_tag, unsafe_allow_html=True)
+
+# ... (rest of your code remains unchanged)
+
 
 # Use local CSS
 def local_css(file_name):
