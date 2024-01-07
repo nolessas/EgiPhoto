@@ -44,17 +44,9 @@ def display_nuotraukos():
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Open the image using PIL
-        pil_image = Image.open(image_path)
+        # Display the image with a smaller size
+        st.image(image_path, caption='Image', use_column_width=True, style={'max-width': '30%'})
 
-        # Resize the image to 10% of its original size
-        width, height = pil_image.size
-        new_width = int(width * 0.1)
-        new_height = int(height * 0.1)
-        resized_image = pil_image.resize((new_width, new_height), Image.ANTIALIAS)
-
-        # Display the resized image
-        st.image(resized_image, caption='Resized Image', use_column_width=True)
 
 
 
