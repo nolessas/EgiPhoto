@@ -136,5 +136,5 @@ if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
 if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
     display_vaizdo_irasai()
 
-if col3.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
-    display_contact_form()
+ if st.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
+        st.header("Parašyk man žinutę!")
