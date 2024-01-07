@@ -135,11 +135,16 @@ col1, col2, col3 = st.columns(3)
 
 # Content
 with col1:
-    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
+    pass  # You can leave it empty if you don't want anything in this column
+
 with col2:
-    st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+    pass  # You can leave it empty if you don't want anything in this column
+
 with col3:
-    st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
+    # Move the elements to the right side
+    st.markdown("[🎨Visit instagram](https://www.instagram.com/egidijauss/)")
+    st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+    st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)")
 
 
 if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
