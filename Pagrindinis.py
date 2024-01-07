@@ -44,8 +44,12 @@ def display_nuotraukos():
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Display the image with a smaller size
-        st.image(image_path, caption='Image', use_column_width=True, style={'max-width': '30%'})
+        # Display the image with a smaller size using custom CSS
+        st.markdown(
+            f'<img src="{image_path}" style="max-width:30%; height:auto;">',
+            unsafe_allow_html=True
+        )
+
 
 
 
