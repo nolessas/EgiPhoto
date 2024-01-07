@@ -26,6 +26,12 @@ st.set_page_config(layout="wide")
 
 st.image("logo2.png")
 
+import streamlit as st
+import os
+from natsort import natsorted
+
+st.image("logo2.png")
+
 # Define the external CSS
 external_css = """
 <style>
@@ -33,6 +39,7 @@ external_css = """
 body {
     background-color: #f0f0f0;
     max-width: 100%;
+    overflow-x: hidden;
 }
 
 #MainMenu, footer, header {
@@ -43,6 +50,7 @@ body {
 st.markdown(external_css, unsafe_allow_html=True)
 
 # ... (rest of your code remains unchanged)
+
 
 
 
