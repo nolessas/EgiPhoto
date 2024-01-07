@@ -8,12 +8,6 @@ import base64
 st.image("logo2.png")
 
 
-viewport_meta_tag = """
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-"""
-st.markdown(viewport_meta_tag, unsafe_allow_html=True)
-
-
 def display_nuotraukos():
     # Path to the folder containing images
     image_folder = "folder1"
