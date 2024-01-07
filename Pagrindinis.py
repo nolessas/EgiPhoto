@@ -5,6 +5,18 @@ from PIL import Image
 
 st.image("logo2.png")
 
+custom_css = """
+<style>
+/* Your custom CSS styles go here */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+}
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
+
 
 custom_css = """
 <style>
