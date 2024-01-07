@@ -8,6 +8,67 @@ import base64
 st.image("logo2.png")
 
 
+# Use local CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+local_css("style/style.css")
+
+# Embed JavaScript to disable horizontal scrolling for images only
+custom_js = """
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function addImageListeners() {
+        var images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+            img.addEventListener('mousedown', function(event) {
+                var startX = event.pageX;
+                var startY = event.pageY;
+
+                img.addEventListener('mousemove', function(event) {
+                    var deltaX = Math.abs(startX - event.pageX);
+                    var deltaY = Math.abs(startY - event.pageY);
+
+                    if (deltaX > deltaY) {
+                        event.preventDefault();
+                    }
+                });
+
+                img.addEventListener('mouseup', function() {
+                    img.removeEventListener('mousemove', function() {});
+                });
+            });
+        });
+    }
+
+    addImageListeners();
+
+    // Add listener to detect when new images are added and apply the script to them
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes) {
+                addImageListeners();
+            }
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+"""
+st.markdown(custom_js, unsafe_allow_html=True)
+
+
+
+
+
+viewport_meta_tag = """
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+"""
+st.markdown(viewport_meta_tag, unsafe_allow_html=True)
+
+
 def display_nuotraukos():
     # Path to the folder containing images
     image_folder = "folder1"
@@ -70,28 +131,22 @@ def display_contact_form():
 
     st.markdown(contact_form, unsafe_allow_html=True)
 
+col1, col2, col3, col4 = st.columns(4)
 
-
-
-# Suskirstome eilutes ir stulpelius
-row1_col1, row1_col2, row1_col3 = st.columns(3)
-row2_col1, row2_col2, row2_col3 = st.columns(3)
-
-# Pirmoji eilutė
-with row1_col1:
+# Content
+with col3:
     st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
-with row1_col2:
+with col3:
     st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-with row1_col3:
+with col3:
     st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
 
-# Antroji eilutė
-with row2_col1:
-    st.button("Nuotraukos", key="nuotraukos_button", help="Explore photos")
-with row2_col2:
-    st.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos")
-with row2_col3:
-    st.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message")
 
+if col2.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
+    display_nuotraukos()  
 
+if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
+    display_vaizdo_irasai()
 
+if col2.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
+    display_contact_form()
