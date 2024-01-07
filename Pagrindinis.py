@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 from natsort import natsorted
+from PIL import Image
 
 st.image("logo2.png")
 
@@ -43,10 +44,17 @@ def display_nuotraukos():
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Display the image with custom CSS styling
-        st.markdown(f'<img src="{image_path}" style="width: 70%;">', unsafe_allow_html=True)
+        # Open the image using PIL
+        pil_image = Image.open(image_path)
 
+        # Resize the image to 10% of its original size
+        width, height = pil_image.size
+        new_width = int(width * 0.1)
+        new_height = int(height * 0.1)
+        resized_image = pil_image.resize((new_width, new_height), Image.ANTIALIAS)
 
+        # Display the resized image
+        st.image(resized_image, caption='Resized Image', use_column_width=True)
 
 
 
