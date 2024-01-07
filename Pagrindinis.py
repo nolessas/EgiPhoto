@@ -44,7 +44,7 @@ def display_nuotraukos():
         image_path = os.path.join(image_folder, image_file)
 
         # Display the image with custom CSS styling
-        st.markdown(f'<img src="{image_path}" style="width: 30%;">', unsafe_allow_html=True)
+        st.markdown(f'<img src="{image_path}" style="width: 70%;">', unsafe_allow_html=True)
 
 
 
