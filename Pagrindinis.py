@@ -8,6 +8,12 @@ st.image("logo2.png")
 
 
 
+import streamlit as st
+import os
+from natsort import natsorted
+
+st.image("logo2.png")
+
 # Define the external CSS
 external_css = """
 <style>
@@ -24,17 +30,37 @@ body {
 """
 st.markdown(external_css, unsafe_allow_html=True)
 
-# Embed JavaScript to disable horizontal scrolling
+# Embed JavaScript to disable horizontal scrolling for images only
 custom_js = """
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    document.body.style.overflowX = 'hidden';
+    var images = document.querySelectorAll('img');
+    images.forEach(function(img) {
+        img.addEventListener('mousedown', function(event) {
+            var startX = event.pageX;
+            var startY = event.pageY;
+
+            img.addEventListener('mousemove', function(event) {
+                var deltaX = Math.abs(startX - event.pageX);
+                var deltaY = Math.abs(startY - event.pageY);
+
+                if (deltaX > deltaY) {
+                    event.preventDefault();
+                }
+            });
+
+            img.addEventListener('mouseup', function() {
+                img.removeEventListener('mousemove', function() {});
+            });
+        });
+    });
 });
 </script>
 """
 st.markdown(custom_js, unsafe_allow_html=True)
 
 # ... (rest of your code remains unchanged)
+
 
 
 
