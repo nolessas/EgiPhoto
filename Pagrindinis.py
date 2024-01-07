@@ -46,22 +46,22 @@ def display_nuotraukos():
     image_files = natsorted(os.listdir(image_folder))
 
     # Display each image in the folder
-    for i, image_file in enumerate(image_files):
+    for image_file in image_files:
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Calculate the width percentage based on the image index
-        width_percentage = 0.7 if i % 2 == 0 else 0.3
-
-        # Open the image using PIL and get its size
+        # Open the image using PIL
         img = Image.open(image_path)
-        img_width, img_height = img.size
 
-        # Calculate the desired width based on the percentage
-        desired_width = int(img_width * width_percentage)
+        # Calculate the desired width as 70% of the current width
+        desired_width = int(img.width * 0.7)
 
-        # Display the image with the calculated width
-        st.image(image_path, caption='Image', use_column_width=True, width=desired_width)
+        # Resize the image
+        img_resized = img.resize((desired_width, int(img.height * (desired_width / img.width))))
+
+        # Display the resized image
+        st.image(img_resized, caption='Image', use_column_width=True)
+
 
 
 
