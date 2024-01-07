@@ -8,6 +8,9 @@ import pandas as pd
 
 st.image("logo2.png")
 
+
+
+
 def display_nuotraukos():
     st.header("Nuotraukos")
 
@@ -74,9 +77,9 @@ local_css("style/style.css")
 
 def display_social_links():
 
-    st.markdown("[Instagram](https://www.instagram.com/egidijauss/)")
-    st.markdown("[Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-    st.markdown("[Facebook](https://www.facebook.com/EgiFoto)")
+    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
+    st.markdown("[🚩Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+    st.markdown("[🌊Facebook](https://www.facebook.com/EgiFoto)")
 
 
 tabs = {
@@ -88,7 +91,7 @@ tabs = {
 
 # Display the selected tab
 selected_tab = st.selectbox(
-    "Choose tab",
+    "Pasirink puslapį!",
     list(tabs.keys())
 )
 tabs[selected_tab]()
