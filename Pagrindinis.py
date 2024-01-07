@@ -6,68 +6,35 @@ from PIL import Image
 import base64
 import pandas as pd
 
-st.image("logo2.png")
 
 
-# Use local CSS
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-local_css("style/style.css")
 
-# Embed JavaScript to disable horizontal scrolling for images only
-custom_js = """
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    function addImageListeners() {
-        var images = document.querySelectorAll('img');
-        images.forEach(function(img) {
-            img.addEventListener('mousedown', function(event) {
-                var startX = event.pageX;
-                var startY = event.pageY;
+import streamlit as st
+import time
 
-                img.addEventListener('mousemove', function(event) {
-                    var deltaX = Math.abs(startX - event.pageX);
-                    var deltaY = Math.abs(startY - event.pageY);
 
-                    if (deltaX > deltaY) {
-                        event.preventDefault();
-                    }
-                });
 
-                img.addEventListener('mouseup', function() {
-                    img.removeEventListener('mousemove', function() {});
-                });
-            });
-        });
-    }
+image_placeholder = st.empty()
 
-    addImageListeners();
+image_path = "logo2.png"
 
-    // Add listener to detect when new images are added and apply the script to them
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.addedNodes) {
-                addImageListeners();
-            }
-        });
-    });
+for i in range(1, 101):
+    image_placeholder.image(image_path, use_column_width=True)
+    time.sleep(0.01)  # Adjust the speed of the sliding effect
 
-    observer.observe(document.body, { childList: true, subtree: true });
-});
-</script>
-"""
-st.markdown(custom_js, unsafe_allow_html=True)
+# Display the final image
+image_placeholder.image(image_path, use_column_width=True)
 
 
 
 
 
-viewport_meta_tag = """
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-"""
-st.markdown(viewport_meta_tag, unsafe_allow_html=True)
+
+
+
+
+
 
 
 def display_nuotraukos():
@@ -132,6 +99,14 @@ def display_contact_form():
 
     st.markdown(contact_form, unsafe_allow_html=True)
 
+    # Use local CSS for email
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+local_css("style/style.css")
+
+
 col1, col2, col3, col4 = st.columns(4)
 
 # Content
@@ -156,10 +131,14 @@ if col3.button("Parašyk man žinutę!", key="contact_form_button", help="Write 
 
     
 def run():
-    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
-    st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-    st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
+    st.markdown("[Instagram](https://www.instagram.com/egidijauss/)")
+    st.markdown("[Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+    st.markdown("[Facebook](https://www.facebook.com/EgiFoto)")
 
 if st.button("Rask mane internete"):
     # Call the function when the button is pressed
     run()
+
+
+
+
