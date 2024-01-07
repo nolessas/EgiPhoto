@@ -53,8 +53,16 @@ def display_nuotraukos():
         # Calculate the width percentage based on the image index
         width_percentage = 0.7 if i % 2 == 0 else 0.3
 
+        # Open the image using PIL and get its size
+        img = Image.open(image_path)
+        img_width, img_height = img.size
+
+        # Calculate the desired width based on the percentage
+        desired_width = int(img_width * width_percentage)
+
         # Display the image with the calculated width
-        st.image(image_path, use_column_width=True, width=width_percentage)
+        st.image(image_path, caption='Image', use_column_width=True, width=desired_width)
+
 
 
 
