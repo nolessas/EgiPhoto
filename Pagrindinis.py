@@ -43,7 +43,7 @@ def display_pilot_data():
         <input type="email" name="email" placeholder="El. paštas*" required>
         <input type="text" name="event_date" placeholder="Šventės data YYYY-MM-DD*" required>
         <textarea name="message" placeholder="Jūsų pranešimas*" required></textarea>
-        <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px; border: none; border-radius: 5px;">Send</button>
+        <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px; border: none; border-radius: 5px;">Siūsti!</button>
     </form>
     """
 
@@ -64,8 +64,8 @@ def display_social_links():
 
 # Display the selected tab or an empty page if no page is selected
 selected_tab = st.selectbox(
-    "",
-    ["Sveiki atvyke! Pasirinkite puslapį.", "Nuotraukos", "Vaizdo įrašai", "Parašyk man žinutę", "Medija"]
+    "Pasirinkite puslapį",
+    ["-", "Nuotraukos", "Vaizdo įrašai", "Parašyk man žinutę", "Medija"]
 )
 
 if selected_tab == "Nuotraukos":
