@@ -8,12 +8,6 @@ st.image("logo2.png")
 
 
 
-import streamlit as st
-import os
-from natsort import natsorted
-
-st.image("logo2.png")
-
 # Define the external CSS
 external_css = """
 <style>
