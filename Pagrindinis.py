@@ -4,22 +4,20 @@ from natsort import natsorted
 
 st.image("logo2.png")
 
-# Define the external CSS
-external_css = """
-<style>
-/* Your custom CSS styles go here */
-body {
-    background-color: #f0f0f0;
-    max-width: 100%;
-    overflow-x: hidden;
-}
+# Use local CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-#MainMenu, footer, header {
-    display: none;
-}
-</style>
-"""
-st.write(external_css, unsafe_allow_html=True)
+local_css("style/style.css")
+
+# Add the following CSS to your style.css file
+# body {
+#   overflow-x: hidden;
+# }
+
+# The rest of your code remains unchanged
+
 
 
 
