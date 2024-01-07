@@ -10,20 +10,16 @@ external_css = """
 /* Your custom CSS styles go here */
 body {
     background-color: #f0f0f0;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 #MainMenu, footer, header {
     display: none;
 }
-
-body {
-    overscroll-behavior-x: none;
-}
 </style>
 """
-st.markdown(external_css, unsafe_allow_html=True)
-
-
+st.write(external_css, unsafe_allow_html=True)
 
 
 
@@ -32,7 +28,8 @@ st.markdown(external_css, unsafe_allow_html=True)
 viewport_meta_tag = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 """
-st.markdown(viewport_meta_tag, unsafe_allow_html=True)
+st.write(viewport_meta_tag, unsafe_allow_html=True)
+
 
 # Use local CSS
 def local_css(file_name):
