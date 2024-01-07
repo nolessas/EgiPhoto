@@ -39,6 +39,7 @@ def local_css(file_name):
 local_css("style/style.css")
 
 
+
 def display_nuotraukos():
     # Path to the folder containing images
     image_folder = "folder1"
@@ -54,14 +55,14 @@ def display_nuotraukos():
         # Open the image using PIL
         img = Image.open(image_path)
 
-        # Resize the image to 70% of its original size
+        # Resize the image to 50% of its original size
         width, height = img.size
-        new_width = int(width * 0.7)
-        new_height = int(height * 0.7)
+        new_width = int(width * 0.5)
+        new_height = int(height * 0.5)
         img_resized = img.resize((new_width, new_height))
 
-        # Display the resized image
-        st.image(img_resized, use_column_width=True)
+        # Display the resized image with adjusted spacing
+        st.image(img_resized, use_column_width=True, output_format="JPEG", format="JPEG", caption='', width=100, clamp=True)
 
 
 
