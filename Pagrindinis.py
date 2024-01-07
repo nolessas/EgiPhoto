@@ -7,6 +7,8 @@ st.image("logo2.png")
 
 import streamlit as st
 
+import streamlit as st
+
 # Add hammerjs library via CDN
 hammerjs_cdn = """
 <script src="https://hammerjs.github.io/dist/hammer.js"></script>
@@ -52,44 +54,6 @@ st.markdown(external_js, unsafe_allow_html=True)
 # ...
 
 
-custom_css = """
-<style>
-/* Your custom CSS styles go here */
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
-}
-</style>
-"""
-st.markdown(custom_css, unsafe_allow_html=True)
-
-
-custom_css = """
-<style>
-/* Your custom CSS styles go here */
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* Disable touch actions to prevent horizontal scrolling on mobile */
-body, html {
-    touch-action: pan-y;
-}
-</style>
-"""
-st.markdown(custom_css, unsafe_allow_html=True)
-
-custom_js = """
-<script>
-// Prevent horizontal scrolling on mobile
-document.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-}, { passive: false });
-</script>
-"""
-st.markdown(custom_js, unsafe_allow_html=True)
 
 
 
@@ -121,7 +85,7 @@ def display_nuotraukos():
         image_path = os.path.join(image_folder, image_file)
 
         # Display the image with a smaller size
-        st.image(image_path, caption='Image', use_column_width=True, output_format="JPEG")
+        st.image(image_path, use_column_width=True, output_format="JPEG")
 
 
 
