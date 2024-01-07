@@ -6,6 +6,20 @@ import base64
 
 st.image("logo2.png")
 
+# Embed JavaScript to disable horizontal scrolling
+custom_js = """
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('scroll', function() {
+        // Disable horizontal scrolling
+        window.scrollTo(window.scrollX, window.scrollY);
+    });
+});
+</script>
+"""
+st.markdown(custom_js, unsafe_allow_html=True)
+
+
 # Define the external CSS
 external_css = """
 <style>
