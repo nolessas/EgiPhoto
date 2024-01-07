@@ -91,7 +91,7 @@ def display_nuotraukos():
         img_resized = img.resize((desired_width, int(img.height * (desired_width / img.width))))
 
         # Display the resized image
-        st.image(img_resized, caption='Image', use_column_width=True)
+        st.image(img_resized, use_column_width=True)
 
 
 def display_vaizdo_irasai():
