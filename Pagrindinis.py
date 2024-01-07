@@ -12,8 +12,7 @@ body {
     background-color: #f0f0f0;
     max-width: 100%;
     overflow-x: hidden;
-    overscroll-behavior-y: contain; /* Prevent vertical overscrolling */
-    touch-action: pan-y; /* Allow only vertical panning on touch devices */
+    height: 100vh; /* Set a fixed height for the body element */
 }
 
 #MainMenu, footer, header {
@@ -22,6 +21,7 @@ body {
 </style>
 """
 st.markdown(external_css, unsafe_allow_html=True)
+
 
 
 viewport_meta_tag = """
