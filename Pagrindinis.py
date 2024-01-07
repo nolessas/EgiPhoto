@@ -12,6 +12,7 @@ body {
     background-color: #f0f0f0;
     max-width: 100%;
     overflow-x: hidden;
+    touch-action: pan-y;
 }
 
 #MainMenu, footer, header {
@@ -21,14 +22,10 @@ body {
 """
 st.markdown(external_css, unsafe_allow_html=True)
 
-
 viewport_meta_tag = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 """
 st.markdown(viewport_meta_tag, unsafe_allow_html=True)
-
-# ... (rest of your code remains unchanged)
-
 
 # Use local CSS
 def local_css(file_name):
@@ -94,11 +91,11 @@ col1, col2, col3 = st.columns(3)
 
 # Content
 with col1:
-   st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
+    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
 with col2:
-   st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
+    st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 with col3:
-   st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
+    st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
 
 # Create buttons in each column
 if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
