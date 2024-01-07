@@ -67,8 +67,14 @@ def display_nuotraukos():
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Display the image with 70% width
-        st.image(image_path, use_column_width=True, width=0.7)
+        # Convert image to base64 encoding
+        with open(image_path, "rb") as img_file:
+            image_data = base64.b64encode(img_file.read()).decode("utf-8")
+
+        # Display the image using base64 encoding
+        st.image(f"data:image/png;base64,{image_data}", use_column_width=True)
+
+
 
 
 
