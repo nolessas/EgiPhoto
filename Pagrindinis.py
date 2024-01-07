@@ -8,67 +8,6 @@ import base64
 st.image("logo2.png")
 
 
-body {
-  overflow-x: hidden;
-}
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
-
-# Use local CSS
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-local_css("style/style.css")
-
-# Embed JavaScript to disable horizontal scrolling for images only
-custom_js = """
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    function addImageListeners() {
-        var images = document.querySelectorAll('img');
-        images.forEach(function(img) {
-            img.addEventListener('mousedown', function(event) {
-                var startX = event.pageX;
-                var startY = event.pageY;
-
-                img.addEventListener('mousemove', function(event) {
-                    var deltaX = Math.abs(startX - event.pageX);
-                    var deltaY = Math.abs(startY - event.pageY);
-
-                    if (deltaX > deltaY) {
-                        event.preventDefault();
-                    }
-                });
-
-                img.addEventListener('mouseup', function() {
-                    img.removeEventListener('mousemove', function() {});
-                });
-            });
-        });
-    }
-
-    addImageListeners();
-
-    // Add listener to detect when new images are added and apply the script to them
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.addedNodes) {
-                addImageListeners();
-            }
-        });
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-});
-</script>
-"""
-st.markdown(custom_js, unsafe_allow_html=True)
-
-
-
-
-
 viewport_meta_tag = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 """
