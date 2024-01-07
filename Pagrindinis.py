@@ -7,6 +7,39 @@ import base64
 
 st.image("logo2.png")
 
+# Define the external CSS
+external_css = """
+<style>
+/* Your custom CSS styles go here */
+body {
+    background-color: #f0f0f0;
+    max-width: 100%;
+}
+
+#MainMenu, footer, header {
+    display: none;
+}
+</style>
+"""
+st.markdown(external_css, unsafe_allow_html=True)
+
+# Embed JavaScript to disable horizontal scrolling
+custom_js = """
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('scroll', function() {
+        // Disable horizontal scrolling
+        window.scrollTo(window.scrollX, window.scrollY);
+    });
+});
+</script>
+"""
+st.markdown(custom_js, unsafe_allow_html=True)
+
+
+
+
+
 
 # Use local CSS
 def local_css(file_name):
