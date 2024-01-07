@@ -14,6 +14,7 @@ external_css = """
 body {
     background-color: #f0f0f0;
     max-width: 100%;
+    overflow-x: hidden;
 }
 
 #MainMenu, footer, header {
@@ -23,29 +24,10 @@ body {
 """
 st.markdown(external_css, unsafe_allow_html=True)
 
-# Embed JavaScript to disable horizontal scrolling
-custom_js = """
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('scroll', function() {
-        // Disable horizontal scrolling
-        window.scrollTo(window.scrollX, window.scrollY);
-    });
-});
-</script>
-"""
-st.markdown(custom_js, unsafe_allow_html=True)
-
-# The rest of your Streamlit app remains unchanged
-# ...
-
-
-
-
 viewport_meta_tag = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 """
-st.write(viewport_meta_tag, unsafe_allow_html=True)
+st.markdown(viewport_meta_tag, unsafe_allow_html=True)
 
 
 # Use local CSS
@@ -54,6 +36,9 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 local_css("style/style.css")
+
+
+
 
 def display_nuotraukos():
     # Path to the folder containing images
@@ -67,15 +52,11 @@ def display_nuotraukos():
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Convert image to base64 encoding
-        with open(image_path, "rb") as img_file:
-            image_data = base64.b64encode(img_file.read()).decode("utf-8")
+        # Display the image
+        st.image(image_path, use_column_width=True)
 
-        # Display the image using base64 encoding
-        st.image(f"data:image/png;base64,{image_data}", use_column_width=True)
-
-
-
+# Create a layout with three columns
+col1, col2, col3 = st.columns(3)
 
 
 
@@ -129,7 +110,7 @@ with col3:
 
 # Create buttons in each column
 if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
-    display_nuotraukos()
+    display_nuotraukos()  
 
 if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
     display_vaizdo_irasai()
