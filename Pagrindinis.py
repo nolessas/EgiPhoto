@@ -131,38 +131,8 @@ def display_contact_form():
 
     st.markdown(contact_form, unsafe_allow_html=True)
 
-col1, col2, col3, col4 = st.columns(4)
 
-import streamlit as st
 
-# Create a layout with 3 rows and 2 columns
-col1, col2 = st.columns(2)
-
-# Content in the first row, first column
-
-    
-
-# Content in the first row, second column
-with col2:
-    st.button("Nuotraukos", key="nuotraukos_button", help="Explore photos")
-
-# Content in the second row, first column
-with col1:
-    st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-
-# Content in the second row, second column
-with col2:
-    st.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos")
-
-# Content in the third row, first column
-with col1:
-    st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
-
-# Content in the third row, second column
-with col2:
-    st.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message")
-
-    import streamlit as st
 
 # Suskirstome eilutes ir stulpelius
 row1_col1, row1_col2, row1_col3 = st.columns(3)
@@ -172,17 +142,17 @@ row2_col1, row2_col2, row2_col3 = st.columns(3)
 with row1_col1:
     st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
 with row1_col2:
-    st.write("x")
+    st.markdown("[💖Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
 with row1_col3:
-    st.write("x")
+    st.markdown("[🧢Facebook](https://www.facebook.com/EgiFoto)")
 
 # Antroji eilutė
 with row2_col1:
-    st.write("y")
+    st.button("Nuotraukos", key="nuotraukos_button", help="Explore photos")
 with row2_col2:
-    st.write("y")
+    st.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos")
 with row2_col3:
-    st.write("y")
+    st.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message")
 
 
 
