@@ -8,34 +8,19 @@ st.image("logo2.png")
 
 
 
-st.set_page_config(layout="wide")
-
-st.image("logo2.png")
-
-import streamlit as st
-import os
-from natsort import natsorted
-
-st.image("logo2.png")
-
-# Define the external CSS
-external_css = """
-<style>
-/* Your custom CSS styles go here */
-body {
-    background-color: #f0f0f0;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-#MainMenu, footer, header {
-    display: none;
-}
-</style>
+# Embed JavaScript to disable horizontal scrolling
+custom_js = """
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('scroll', function() {
+        // Disable horizontal scrolling
+        window.scrollTo(window.scrollX, window.scrollY);
+    });
+});
+</script>
 """
-st.markdown(external_css, unsafe_allow_html=True)
+st.markdown(custom_js, unsafe_allow_html=True)
 
-# ... (rest of your code remains unchanged)
 
 
 
