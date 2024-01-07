@@ -57,14 +57,9 @@ def display_nuotraukos():
         # Open the image using PIL
         img = Image.open(image_path)
 
-        # Resize the image to 50% of its original size
-        width, height = img.size
-        new_width = int(width * 0.5)
-        new_height = int(height * 0.5)
-        img_resized = img.resize((new_width, new_height))
+        # Display the image
+        st.image(img, caption='', use_column_width=True)
 
-        # Display the resized image with adjusted spacing
-        st.image(img_resized, caption='', output_format="JPEG", format="JPEG", width=new_width)
 
 
 
