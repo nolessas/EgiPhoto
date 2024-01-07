@@ -131,33 +131,23 @@ def display_contact_form():
 
     st.markdown(contact_form, unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3)
+left_col, right_col = st.columns([2, 1])
 
-# Content
-with col1:
-    pass  # You can leave it empty if you don't want anything in this column
+with right_col:
+    # Social media links to the right
+    st.markdown("[🎨Visit Instagram](https://www.instagram.com/egidijauss/)", key="instagram_link")
+    st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)", key="youtube_link")
+    st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)", key="facebook_link")
 
-with col2:
-    pass  # You can leave it empty if you don't want anything in this column
-
-with col3:
-    # Move the elements to the right side
-    st.markdown("[🎨Visit instagram](https://www.instagram.com/egidijauss/)")
-    st.markdown("[💖Visit Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-    st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)")
-
-
-with col1:
-    # Move the "Nuotraukos" button to the left
-    if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
+with left_col:
+    # "Nuotraukos" button to the left
+    if left_col.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
         display_nuotraukos()
 
-with col2:
-    # Move the "Vaizdo įrašai" button to the left
-    if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
+    # "Vaizdo įrašai" button to the left
+    if left_col.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
         display_vaizdo_irasai()
 
-with col3:
-    # Move the "Parašyk man žinutę!" button to the left
-    if col3.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
+    # "Parašyk man žinutę!" button to the left
+    if left_col.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
         display_contact_form()
