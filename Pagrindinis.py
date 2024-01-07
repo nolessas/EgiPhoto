@@ -50,11 +50,17 @@ def display_nuotraukos():
         # Construct the full path to the image file
         image_path = os.path.join(image_folder, image_file)
 
-        # Display the image
+        # Display the image with custom HTML to control the size
         if i % 2 == 0:
             st.image(image_path, use_column_width=True)
         else:
-            st.image(image_path, use_column_width=True, width=0.5)
+            with open(image_path, "rb") as img_file:
+                my_string = base64.b64encode(img_file.read())
+                s = my_string.decode('UTF-8')
+                html = f"""<div style='width:50%; display:inline-block; overflow:hidden'>
+                                <img style='width:100%' src='data:image/jpeg;base64,{str(s)}'>
+                           </div>"""
+                st.markdown(html, unsafe_allow_html=True)
 
 
 
