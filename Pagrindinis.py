@@ -5,12 +5,6 @@ from PIL import Image
 
 st.image("logo2.png")
 
-import streamlit as st
-
-import streamlit as st
-
-import streamlit as st
-
 # Define the external CSS
 external_css = """
 <style>
@@ -18,8 +12,6 @@ external_css = """
 body {
     background-color: #f0f0f0;
     max-width: 100%;
-    overflow-x: hidden;
-    overscroll-behavior-x: contain;
 }
 
 #MainMenu, footer, header {
@@ -29,9 +21,9 @@ body {
 """
 st.markdown(external_css, unsafe_allow_html=True)
 
-# The rest of your Streamlit app remains unchanged
-# ...
-
+# Load the custom JavaScript to disable horizontal scrolling
+custom_js = open("custom.html").read()
+st.markdown(custom_js, unsafe_allow_html=True)
 
 
 
