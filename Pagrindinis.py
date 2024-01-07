@@ -91,7 +91,7 @@ tabs = {
 
 # Display the selected tab
 selected_tab = st.selectbox(
-    "Pasirink puslapį!",
+    "Pasirinkite puslapį",
     list(tabs.keys())
 )
 tabs[selected_tab]()
