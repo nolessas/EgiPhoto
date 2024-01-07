@@ -147,11 +147,17 @@ with col3:
     st.markdown("[🧢Visit Facebook](https://www.facebook.com/EgiFoto)")
 
 
-if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
-    display_nuotraukos()  
+with col1:
+    # Move the "Nuotraukos" button to the left
+    if col1.button("Nuotraukos", key="nuotraukos_button", help="Explore photos"):
+        display_nuotraukos()
 
-if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
-    display_vaizdo_irasai()
+with col2:
+    # Move the "Vaizdo įrašai" button to the left
+    if col2.button("Vaizdo įrašai", key="vaizdo_irasai_button", help="Watch videos"):
+        display_vaizdo_irasai()
 
-if col3.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
-    display_contact_form()
+with col3:
+    # Move the "Parašyk man žinutę!" button to the left
+    if col3.button("Parašyk man žinutę!", key="contact_form_button", help="Write me a message"):
+        display_contact_form()
