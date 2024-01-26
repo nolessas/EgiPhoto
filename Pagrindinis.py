@@ -14,7 +14,7 @@ def display_nuotraukos():
         img = Image.open(image_path)
         desired_width = int(img.width * 0.5)
         img_resized = img.resize((desired_width, int(img.height * (desired_width / img.width))))
-        st.image(img_resized, use_column_width=True)
+        st.image(img_resized)  # Removed use_column_width=True
 
 def display_vaizdo_irasai():
     videos = [
