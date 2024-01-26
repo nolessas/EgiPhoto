@@ -16,7 +16,6 @@ def display_nuotraukos():
         img_resized = img.resize((desired_width, int(img.height * (desired_width / img.width))))
         st.image(img_resized, use_column_width=True)
 
-# CSS to hide the fullscreen button
 hide_img_fs = '''
 <style>
 button[title="View fullscreen"]{
@@ -24,7 +23,6 @@ button[title="View fullscreen"]{
 </style>
 '''
 
-# Call this before displaying images
 st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 def display_vaizdo_irasai():
@@ -58,7 +56,7 @@ def display_pilot_data():
 
     st.markdown(contact_form, unsafe_allow_html=True)
 
-         # Use local CSS for email
+
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -69,8 +67,6 @@ def display_social_links():
     st.markdown("<p align='center'><a href='https://www.instagram.com/egidijauss/'>🎨Instagram</a></p>", unsafe_allow_html=True)
     st.markdown("<p align='center'><a href='https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ'>🚩Youtube</a></p>", unsafe_allow_html=True)
     st.markdown("<p align='center'><a href='https://www.facebook.com/EgiFoto'>🌊Facebook</a></p>", unsafe_allow_html=True)
-
-
 
 
 
