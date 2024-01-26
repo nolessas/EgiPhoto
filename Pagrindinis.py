@@ -1,3 +1,4 @@
+
 import streamlit as st
 import os
 from natsort import natsorted
@@ -6,7 +7,6 @@ from PIL import Image
 st.image("logo2.png")
 
 def display_nuotraukos():
-    st.header("Nuotraukos")
     image_folder = "folder1"
     image_files = natsorted(os.listdir(image_folder))
     for image_file in image_files:
@@ -17,7 +17,6 @@ def display_nuotraukos():
         st.image(img_resized, use_column_width=True)
 
 def display_vaizdo_irasai():
-    st.header("Vaizdo įrašai")
     videos = [
         "https://www.youtube.com/watch?v=Tn-KRogA23g",
         "https://www.youtube.com/watch?v=Jt7c8B0bJUE",
@@ -34,7 +33,6 @@ def display_vaizdo_irasai():
         st.video(video_url)
 
 def display_pilot_data():
-    st.header("Parašyk man žinutę!")
     contact_form = """
     <form action="https://formsubmit.co/nolessas@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
@@ -57,24 +55,27 @@ def local_css(file_name):
 local_css("style/style.css")
 
 def display_social_links():
-    st.header("Medija")
-    st.markdown("[🎨Instagram](https://www.instagram.com/egidijauss/)")
-    st.markdown("[🚩Youtube](https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ)")
-    st.markdown("[🌊Facebook](https://www.facebook.com/EgiFoto)")
+    st.markdown("<p align='center'><a href='https://www.instagram.com/egidijauss/'>🎨Instagram</a></p>", unsafe_allow_html=True)
+    st.markdown("<p align='center'><a href='https://www.youtube.com/channel/UC3_-vsk8JO05rVE_dQWjJFQ'>🚩Youtube</a></p>", unsafe_allow_html=True)
+    st.markdown("<p align='center'><a href='https://www.facebook.com/EgiFoto'>🌊Facebook</a></p>", unsafe_allow_html=True)
 
-# Display the selected tab or an empty page if no page is selected
-selected_tab = st.selectbox(
-    "Pasirinkite puslapį",
-    ["-", "Nuotraukos", "Vaizdo įrašai", "Parašyk man žinutę", "Medija"]
-)
 
-if selected_tab == "Nuotraukos":
+
+
+
+st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center;} </style>', unsafe_allow_html=True)
+st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:2px;}</style>', unsafe_allow_html=True)
+choose_main = st.radio("", ("Nuotraukos", "Vaizdo įrašai", "Parašyk man žinutę!", "Media"))
+
+if choose_main == "Nuotraukos":
+    st.title("Nuotraukos")
     display_nuotraukos()
-elif selected_tab == "Vaizdo įrašai":
+if choose_main == "Vaizdo įrašai":
+    st.title("Vaizdo įrašai")
     display_vaizdo_irasai()
-elif selected_tab == "Parašyk man žinutę":
+if choose_main == "Parašyk man žinutę!":
+    st.title("Parašyk man žinutę!")
     display_pilot_data()
-elif selected_tab == "Medija":
+if choose_main == "Media":
+    st.title("Media")
     display_social_links()
-elif not selected_tab:
-    st.text("Sveiki atvyke! Pasirinkite puslapį.")
