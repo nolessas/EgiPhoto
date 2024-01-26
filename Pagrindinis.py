@@ -16,6 +16,17 @@ def display_nuotraukos():
         img_resized = img.resize((desired_width, int(img.height * (desired_width / img.width))))
         st.image(img_resized, use_column_width=True)
 
+# CSS to hide the fullscreen button
+hide_img_fs = '''
+<style>
+button[title="View fullscreen"]{
+    visibility: hidden;}
+</style>
+'''
+
+# Call this before displaying images
+st.markdown(hide_img_fs, unsafe_allow_html=True)
+
 def display_vaizdo_irasai():
     videos = [
         "https://www.youtube.com/watch?v=Tn-KRogA23g",
