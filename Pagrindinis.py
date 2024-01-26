@@ -9,15 +9,12 @@ st.image("logo2.png")
 def display_nuotraukos():
     image_folder = "folder1"
     image_files = natsorted(os.listdir(image_folder))
-    max_width = st.sidebar.slider('Max image width', 100, 600, 300)  # Slider to adjust image width
-
     for image_file in image_files:
         image_path = os.path.join(image_folder, image_file)
         img = Image.open(image_path)
-        desired_width = min(int(img.width * 0.5), max_width)  # Set the desired width as the smaller of half the original width or max_width
+        desired_width = int(img.width * 0.5)
         img_resized = img.resize((desired_width, int(img.height * (desired_width / img.width))))
-        st.image(img_resized)
-
+        st.image(img_resized, use_column_width=True)
 
 # CSS to hide the fullscreen button
 hide_img_fs = '''
