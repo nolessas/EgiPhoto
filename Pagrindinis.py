@@ -16,6 +16,7 @@ def display_nuotraukos():
         img_resized = img.resize((desired_width, int(img.height * (desired_width / img.width))))
         st.image(img_resized, use_column_width=True)
 
+# CSS to hide the fullscreen button
 hide_img_fs = '''
 <style>
 button[title="View fullscreen"]{
@@ -23,6 +24,7 @@ button[title="View fullscreen"]{
 </style>
 '''
 
+# Call this before displaying images
 st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 def display_vaizdo_irasai():
@@ -56,7 +58,7 @@ def display_pilot_data():
 
     st.markdown(contact_form, unsafe_allow_html=True)
 
-
+         # Use local CSS for email
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -70,19 +72,21 @@ def display_social_links():
 
 
 
+
+
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center;} </style>', unsafe_allow_html=True)
 st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:2px;}</style>', unsafe_allow_html=True)
 choose_main = st.radio("", ("Nuotraukos", "Vaizdo įrašai", "Parašyk man žinutę!", "Media"))
 
 if choose_main == "Nuotraukos":
-    st.title("Nuotraukos")
+    st.markdown("<h1 style='text-align: center'>Nuotraukos</h1>", unsafe_allow_html=True)
     display_nuotraukos()
-if choose_main == "Vaizdo įrašai":
-    st.title("Vaizdo įrašai")
+elif choose_main == "Vaizdo įrašai":
+    st.markdown("<h1 style='text-align: center'>Vaizdo įrašai</h1>", unsafe_allow_html=True)
     display_vaizdo_irasai()
-if choose_main == "Parašyk man žinutę!":
-    st.title("Parašyk man žinutę!")
+elif choose_main == "Parašyk man žinutę!":
+    st.markdown("<h1 style='text-align: center'>Parašyk man žinutę!</h1>", unsafe_allow_html=True)
     display_pilot_data()
-if choose_main == "Media":
-    st.title("Media")
+elif choose_main == "Media":
+    st.markdown("<h1 style='text-align: center'>Media</h1>", unsafe_allow_html=True)
     display_social_links()
